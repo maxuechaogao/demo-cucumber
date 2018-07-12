@@ -1,0 +1,725 @@
+package run;
+
+import cucumber.api.Scenario;
+import cucumber.api.java.After;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+import fun.*;
+import fun.Filter.WXFilter;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertEquals;
+
+public class Step {
+	public static String err_url;
+	public static String err_param;
+	public static String err_json; // 发送请求返回的json字符串
+	public static String err_type; // 接口类型：post or get
+	public static String json; // 发送请求返回的json字符串
+	private String errName = null;			//错误名称
+	public static HttpRequest httpRequest = new HttpRequest();
+	static Long oldZLB, thisZLB;
+	Filter filter = new Filter();
+	
+	public static void printJson(String url, String json) {
+		System.out.println(url);
+		System.out.println(json);
+		
+			
+		}
+	
+	@When("^设置项目名称后缀为:\"([^\"]*)\"$")
+	public void setProjectAfterName(String names){
+		OperateFileUtils.projectAfterName = names;
+	}
+	
+	@When("^设置微信收件人为\"([^\"]*)\"$")
+	public void setWeiXinShouJianRen(String names){
+		OperateFileUtils.touser = names;
+	}
+	/**
+	 * 测试组=4
+	 * 平台组=2
+	 * 资产组=3
+	 * @all=所有人
+	 * @param names
+	 */
+	@When("^设置微信收件部门为\"([^\"]*)\"$")
+	public void setWeiXinShouJianBuMen(String names){
+		names = names.replace("测试组", "4");
+		names = names.replace("平台组", "2");
+		names = names.replace("资产组", "3");
+		OperateFileUtils.toparty = names;
+	}
+	
+	@When("^\"([^\"]*)\"接口报错后\"([^\"]*)\"接口的报错不发微信$")
+	public void setJieKouGuanXi(String parent, String sun){
+		WXFilter.setControl(parent, sun);
+	}
+	
+	@When("^设置mobile的token为\"([^\"]*)\"$")
+	public void set(String token){
+		filter.values.put("{mobile_token}", token);
+	}
+
+	/**
+	 * 格式为 X-token=xxxxxxxxxxxxxx
+	 * @param header
+	 */
+	@When("^设置请求头为\"([^\"]*)\"$")
+	public void setHeader(String header){
+		httpRequest.setHeader(header);
+		httpRequest.setHasHeader(true);
+	}
+	
+	@When("^设置at为\"([^\"]*)\"$")
+	public void setAt(String value){
+		String at = filter.filterValue(value);
+		System.out.println("at:"+at);
+		httpRequest.setAt(at);
+	}
+	
+	@When("^设置rt为\"([^\"]*)\"$")
+	public void setRt(String value){
+		String rt = filter.filterValue(value);
+		System.out.println("rt:"+rt);
+		httpRequest.setRt(rt);
+	}
+	@When("^设置fromsystem为\"([^\"]*)\"$")
+	public void setfromsystem(String fromsystem){
+		filter.values.put("{fromsystem}",fromsystem);
+		httpRequest.setfromsystem(fromsystem);
+	}
+	@When("^设置deviceid为\"([^\"]*)\"$")
+	public void setdeviceid(String deviceid){
+		filter.values.put("{did}",deviceid);
+		httpRequest.setdeviceid(deviceid);
+	}
+	@When("^设置cookie$")
+	public void setcookie(){
+		String at = filter.filterValue("{access_token}");
+		String rt = filter.filterValue("{refresh_Token}");
+		String cookie ="at="+at+";rt="+rt;
+		System.out.println("cookie:"+cookie);
+		httpRequest.setcookie(cookie);
+	}
+	@When("^步骤:([^\"]*)$")
+	public void setstep(String name){
+		System.out.println("步骤:"+name);
+	}
+
+
+	@When("清除请求头")
+	public void clearHeader(){
+		httpRequest.setHeader(null);
+		httpRequest.setHasHeader(false);
+	}
+	
+	@When("^等待(\\d+)\"([^\"]*)\"$")
+	public void wait(int time, String dw){
+		int ms = 0;
+		switch(dw){
+		case "毫秒":
+			ms = time;
+			break;
+		case "秒":
+			ms = time * 1000;
+			break;
+		case "分钟":
+			ms = time * 1000 * 60;
+			break;
+		case "小时":
+			ms = time * 1000 * 60 * 60;
+		}
+		try {
+			Thread.sleep(ms);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * 主要测试接口使用post请求方法
+	 * @param url
+	 * @param param
+	 */
+	@When("^调用POST_Json接口,url:\"([^\"]*)\",param:\"([^\"]*)\"$")
+	public void send_json_post(String url, String param) {
+		url = filter.filterValue(url);
+		param = filter.filterValue(param);
+		param = param.replaceAll("'", "\"");
+		json = httpRequest.SendPost_json(url, param);
+		err_url = url;
+		err_param = param;
+		err_json = json;
+		err_type = "post";
+	}
+
+	/**
+	 * 主要测试接口使用post请求方法
+	 * @param testContent
+	 * @param url
+	 * @param param
+	 */
+	@When("^调用POST_Json接口,testContent:\"([^\"]*)\",url:\"([^\"]*)\",param:\"([^\"]*)\"$")
+	public void send_json_post(String testContent, String url, String param) {
+		url = filter.filterValue(url);
+		param = filter.filterValue(param);
+		param = param.replaceAll("'", "\"");
+		json = httpRequest.SendPost_json_DB(testContent, url, param);
+		if("删除投递表".equals(testContent) && !json.contains("\"code\":\"200\"")){
+			for(int i=0; i<5; i++){
+				this.wait(1, "秒");
+				httpRequest.SendPost_json(url, param);
+			}
+		}
+		err_url = url;
+		err_param = param;
+		err_json = json;
+		err_type = "post";
+	}
+	/**
+	 * 辅助测试接口使用post请求方法
+	 * @param url
+	 * @param param
+	 */
+	@When("^调用POST接口,url:\"([^\"]*)\",param:\"([^\"]*)\"$")
+	public void send_post(String url, String param) {
+		url = filter.filterValue(url);
+		param = filter.filterValue(param);
+		json = HttpRequest.SendPost_keyValue(url, param);
+		Step.printJson(url, json);
+		err_url = url;
+		err_param = param;
+		err_json = json;
+		err_type = "post";
+	}
+
+	/**
+	 * 辅助测试接口使用get请求方法
+	 * @param url
+	 */
+	@When("^调用GET接口,url:\"([^\"]*)\"$")
+	public void send_get(String url) {
+		url = filter.filterValue(url);
+		json = httpRequest.sendGet(url);
+		err_url = url;
+		err_param = null;
+		err_json = json;
+		err_type = "get";
+	}
+
+	/**
+	 * 主要测试接口使用get请求方法
+	 * @param testContent
+	 * @param url
+	 */
+	@When("^调用GET接口,testContent:\"([^\"]*)\",url:\"([^\"]*)\"$")
+	public void send_get(String testContent, String url) {
+		url = filter.filterValue(url);
+		json = httpRequest.sendGet_DB(testContent, url);
+		Step.printJson(url, json);
+		err_url = url;
+		err_param = null;
+		err_json = json;
+		err_type = "get";
+	}
+
+	@When("^调用GET接口forcheckId,testContent:\"([^\"]*)\",url:\"([^\"]*)\"$")
+	public void send_get_checkId(String testContent, String url) {
+		url = filter.filterValue(url);
+		json = httpRequest.sendGet_DB_checkId(testContent, url);
+		Step.printJson(url, json);
+		err_url = url;
+		err_param = null;
+		err_json = json;
+		err_type = "get";
+	}
+
+	@Then("^json字符串中\"([^\"]*)\",的值为:\"([^\"]*)\"$")
+	public void assertJSONData(String key, String value) {
+		if(key.equals("全部内容")){
+			key = "";
+		}
+		value = filter.filterValue(value);
+		String keys[] = key.split(",");
+		String reValue = JsonHelper.getValue(json, keys).toString();
+		assertThat(reValue, is(value));
+	}
+
+	@When("^把\"([^\"]*)\"以\"([^\"]*)\"命名保存$")
+	public void save(String key, String name) {
+		Exception ee = null;
+		boolean notHasErr = false;
+		int index = 5;
+		String tmpErrName=null,tmpErrUrl=null,tmpErrType=null,tmpErrParam=null,tmpErrJson=null;
+		while(!notHasErr && index>0){
+			index--;
+			try{
+				String keys[] = key.split(",");
+				String value = JsonHelper.getValue(json, keys).toString();
+				filter.values.put(name, value);
+				notHasErr = true;
+			}catch(Exception e){
+				if(index==4){
+					tmpErrName=errName;
+					tmpErrUrl=err_url;
+					tmpErrType=err_type;
+					tmpErrParam=err_param;
+					tmpErrJson=err_json;
+					ee = e;
+				}
+				wait(1, "秒");
+				if(err_type.equals("get")){
+					send_get(err_url);
+				}else{
+					send_post(err_url,err_param);
+				}
+			}
+		}
+		if(!notHasErr){
+			errName = "从json中取出"+name+"字段失败";
+			OperateFileUtils.writeErrLog("error.log", tmpErrName, tmpErrUrl, tmpErrType, tmpErrParam, tmpErrJson, ee.getMessage());
+			throw new RuntimeException("\n url:"+tmpErrUrl+"\n param:"+tmpErrParam+"\n json"+tmpErrJson); 
+		}
+	}
+	
+	@When("^释放一些变量keys:\"([^\"]*)\"$")
+	public void deleteBl(String keys){
+		String key[] = keys.split(",");
+		for(int i=0; i<key.length; i++){
+			filter.values.remove(key[i]);
+		}
+    }
+	
+	@When("^取出刷新时间保存为\"([^\"]*)\"$")
+	public void refresh(String key) {
+		try{
+			String value = json.substring(json.indexOf("refreshDate")+13);
+			value = value.substring(0,value.indexOf(","));
+			filter.values.put(key, value);
+		}catch(Exception e){
+			throw new RuntimeException("\n url:"+err_url+"\n param:"+err_param+"\n json"+json); 
+		}
+	}
+
+	@Then("^POST接口,url:\"([^\"]*)\",param:\"([^\"]*)\"返回的\"([^\"]*)\"会在(\\d+)分钟内变成\"([^\"]*)\"$")
+	public void waitRefrash(String url, String param, String key, int time,
+							String value) throws InterruptedException {
+		url = filter.filterValue(url);
+		param = filter.filterValue(param);
+		value = filter.filterValue(value);
+		String keys[] = key.split(",");
+		for (int i = 0; i < time * 60; i++) {
+			json = HttpRequest.SendPost_keyValue(url, param);
+			err_url = url;
+			err_param = param;
+			err_json = json;
+			err_type = "post";
+			boolean isW = false;
+			for(int j=1; j<=keys.length; j++){
+				String[] begin = common.arrayCopy(keys, 0, j);
+				if(JsonHelper.getValue(json, begin).equals("[]") && j < keys.length){
+					isW = true;
+					break;
+				}
+			}
+			
+			if(isW){
+				Thread.sleep(1000);
+				continue;
+			}
+			if (JsonHelper.getValue(json, keys).indexOf(value) > -1) {
+				return;
+			} else {
+				Thread.sleep(1000);
+			}
+		}
+		String errs = "等到" + time + "分钟后" + key + "的值仍未变成" + value
+				+ "\n 实际返回的 " + key + ":" + JsonHelper.getValue(json, keys);
+		errName = "可能是消息中心等消息未等到";
+		OperateFileUtils.writeErrLog("error.log", errName, err_url, err_type, err_param, err_json, errs);
+		throw new RuntimeException(errs + "\n url:" + url + "\n param:" + param + "\n json:" + json);
+	}
+	
+	@Then("^JSON_POST接口,url:\"([^\"]*)\",param:\"([^\"]*)\"返回的\"([^\"]*)\"会在(\\d+)分钟内变成\"([^\"]*)\"$")
+	public void waitRefrash2(String url, String param, String key, int time,
+							String value) throws InterruptedException {
+		url = filter.filterValue(url);
+		param = filter.filterValue(param);
+		value = filter.filterValue(value);
+		String keys[] = key.split(",");
+		for (int i = 0; i < time * 60; i++) {
+			json = httpRequest.SendPost_json(url, param);
+			err_url = url;
+			err_param = param;
+			err_json = json;
+			err_type = "post";
+			boolean isW = false;
+			for(int j=1; j<=keys.length; j++){
+				String[] begin = common.arrayCopy(keys, 0, j);
+				if(JsonHelper.getValue(json, begin).equals("[]") && j < keys.length){
+					isW = true;
+					break;
+				}
+			}
+			
+			if(isW){
+				Thread.sleep(1000);
+				continue;
+			}
+			if (JsonHelper.getValue(json, keys).indexOf(value) > -1) {
+				return;
+			} else {
+				Thread.sleep(1000);
+			}
+		}
+		String errs = "等到" + time + "分钟后" + key + "的值仍未变成" + value
+				+ "\n 实际返回的 " + key + ":" + JsonHelper.getValue(json, keys);
+		errName = "可能是消息中心等消息未等到";
+		OperateFileUtils.writeErrLog("error.log", errName, err_url, err_type, err_param, err_json, errs);
+		throw new RuntimeException(errs + "\n url:" + url + "\n param:" + param + "\n json:" + json);
+	}
+
+	@Then("^GET接口,url:\"([^\"]*)\"返回的\"([^\"]*)\"会在(\\d+)分钟内变成\"([^\"]*)\"$")
+	public void waitRefrash(String url, String key, int time,
+							String value) throws InterruptedException {
+		url = filter.filterValue(url);
+		value = filter.filterValue(value);
+		String keys[] = key.split(",");
+		for (int i = 0; i < time * 60; i++) {
+			json = httpRequest.sendGet(url);
+			err_url = url;
+			err_param = null;
+			err_json = json;
+			err_type = "get";
+			boolean isW = false;
+			for(int j=1; j<=keys.length; j++){
+				String[] begin = common.arrayCopy(keys, 0, j);
+				if(JsonHelper.getValue(json, begin).equals("[]") && j < keys.length){
+					isW = true;
+					break;
+				}
+			}
+			
+			if(isW){
+				Thread.sleep(1000);
+				continue;
+			}
+			if (JsonHelper.getValue(json, keys).indexOf(value) > -1) {
+				return;
+			} else {
+				Thread.sleep(1000);
+			}
+		}
+		String errs = "等到" + time + "分钟后" + key + "的值仍未变成" + value
+				+ "\n 实际返回的 " + key + ":" + JsonHelper.getValue(json, keys);
+		errName = "可能是solr等数据同步未等到，请确认solr的消息队列是否堵塞";
+		OperateFileUtils.writeErrLog("error.log", errName, err_url, err_type, err_param, err_json, errs);
+		throw new RuntimeException(errs + "\n url:" + url + "\n json:" + json);
+	}
+
+
+	@When("^保存一个变量key=\"([^\"]*)\",value=\"([^\"]*)\"$")
+	public void saveBl(String key, String value){
+		filter.values.put(key, value);
+    }
+	
+	@When("^保存当天零点时间戳key=\"([^\"]*)\"$")
+	public void saveTime(String key){
+		filter.values.put(key,DateUtil.getDayTime().toString());
+    }
+
+	@When("^去掉json字符串中的\"([^\"]*)\"字段$")
+	public void removex(String key){
+		//String value = JsonHelper.getValue(json, key.split(",")).toString();
+		json = StrHelper.get_newJsonStr(json, ",\""+key+"\":\"([^\"]*)\"", "");
+		json = StrHelper.get_newJsonStr(json, ",\""+key+"\":([0-9]\\d*)", "");
+	}
+
+	@When("^生产一个随机ip,以\"([^\"]*)\"命名保存$")
+	public void randomip(String name){
+		filter.values.put(name, new Rand().getIp());
+	}
+
+	@When("^生产一个当前时间戳,以\"([^\"]*)\"命名保存$")
+	public void randMilltime(String name){
+		String rtime = String.valueOf(DateUtil.getMillTime());
+		System.out.println("rtime:"+rtime);
+		filter.values.put(name,rtime);
+	}
+
+	@When("^生成一个md5key,以\"([^\"]*)\"命名保存$")
+	public void randMd5key(String name){
+		String r = filter.values.get("{r}");
+		String path = filter.values.get("{path}");
+		String did = filter.values.get("{did}");
+
+		String md5Key = Rand.getMD5Key(r,path,did);
+		System.out.println("md5key:"+md5Key);
+		filter.values.put(name,md5Key);
+	}
+
+	@When("^生产一个随机phoneNumber,以\"([^\"]*)\"命名保存$")
+	public void randomPhonenumber(String name){
+		String phoneNumber = new Rand().getTimeOrderPhoneNumber();
+		filter.values.put(name, phoneNumber);
+	}
+	
+	@When("^生成明天(\\d+)点的时间,以\"([^\"]*)\"命名保存$")
+	public void mtxdian(int hour, String name){
+		Date date = new Date();
+		Calendar now_c = new GregorianCalendar();
+		now_c.setTime(date);
+		now_c.set(now_c.HOUR_OF_DAY, hour);
+		now_c.set(now_c.MINUTE, 0);
+		now_c.set(now_c.SECOND, 0);
+		now_c.add(now_c.DATE, 1);
+	    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	    String dateString = formatter.format(now_c.getTime());			 
+	    filter.values.put(name, dateString);
+	}
+
+	@Then("记录当前智联币数量")
+	public void saveZLB() {
+		json = json.replace("\"BalanceMoney\":", "\"BalanceMoney\":\"");
+		json = json.replace(",\"TotalMoney\"", "\",\"TotalMoney\"");
+		oldZLB = thisZLB;
+		String num = JsonHelper.getValue(json, "Data,BalanceMoney".split(","));
+		if (num.indexOf(".") != -1) {
+			num = num.substring(0, num.indexOf("."));
+		}
+		thisZLB = Long.parseLong(num);
+	}
+	
+	@Then("^验证智联币消耗了(\\d+)个$")
+	public void assertZLB(int num) {
+		assertEquals(num, oldZLB - thisZLB);
+	}
+
+	@Then("^验证智联币消耗了\"([^\"]*)\"个$")
+	public void assertZLB(String key) {
+		String value = filter.values.get(key);
+		if(value.indexOf(".") != -1){
+			value = value.substring(0, value.indexOf("."));
+		}
+		int num =  Integer.parseInt(value);
+		assertEquals(num, oldZLB - thisZLB);
+	}
+	
+	@Then("^json结果中包含\"([^\"]*)\"$")
+	public void isHaveString(String str){
+		str = this.filter.filterValue(str);
+		str = str.replace(" ", "");
+		json = json.replace(" ", "");
+		String[] strs = str.split(",");
+		String errs = "";
+		boolean isHaveErr = false;
+		for(int i=0; i<strs.length; i++){
+			if(json.indexOf(strs[i]) == -1){
+				errs += strs[i]+"\n";
+				isHaveErr = true;
+			}
+		}
+		errs = "json中不包含 : \n" + errs;
+		if(isHaveErr){
+			errName = "###数据对比失败###";
+			OperateFileUtils.writeErrLog("error.log", errName, err_url, err_type, err_param, err_json, errs);
+			throw new RuntimeException(errs + "\n url:"+err_url+"\n param:"+err_param+"\n json:" + json);
+		}
+	}
+	
+	@Then("^json结果中不包含\"([^\"]*)\"$")
+	public void isNotHaveString(String str){
+		str = this.filter.filterValue(str);
+		str = str.replace(" ", "");
+		json = json.replace(" ", "");
+		String[] strs = str.split(",");
+		String errs = "";
+		boolean isHaveErr = true;
+		for(int i=0; i<strs.length; i++){
+			if(json.indexOf(strs[i]) == -1){
+				errs += strs[i]+"\n";
+				isHaveErr = false;
+			}
+		}
+		errs = "json中不包含 : \n" + errs;
+		if(isHaveErr){
+			errName = "###数据对比失败###";
+			OperateFileUtils.writeErrLog("error.log", errName, err_url, err_type, err_param, err_json, errs);
+			throw new RuntimeException(errs + "\n url:"+err_url+"\n param:"+err_param+"\n json:" + json);
+		}
+	}
+	
+	@Then("^json结果中\"([^\"]*)\"字段包含\"([^\"]*)\"$")
+	public void isKeyHaveString(String key, String str){
+		str = this.filter.filterValue(str);
+		str = str.replace(" ", "");
+		json = json.replace(" ", "");
+		String value = JsonHelper.getValue(json, key.split(",")).toString();
+		String[] strs = str.split(",");
+		String errs = "";
+		boolean isHaveErr = false;
+		for(int i=0; i<strs.length; i++){
+			if(value.indexOf(strs[i]) == -1){
+				errs += strs[i]+"\n";
+				isHaveErr = true;
+			}
+		}
+		errs = "json中不包含 : \n" + errs;
+		if(isHaveErr){
+			errName = "###数据对比失败###";
+			OperateFileUtils.writeErrLog("error.log", errName, err_url, err_type, err_param, err_json, errs);
+			throw new RuntimeException(errs + "\n json:" + value);
+		}
+	}
+	
+	
+	@Then("^\"([^\"]*)\"大于\"([^\"]*)\"$")
+	public void dayu(String da, String xiao){
+		da = this.filter.filterValue(da);
+		xiao = this.filter.filterValue(xiao);
+		int IDa = Integer.parseInt(da);
+		int IXiao = Integer.parseInt(xiao);
+		if(!(IDa>IXiao)){
+			errName = "###职位没刷新时间对比失败###";
+			OperateFileUtils.writeErrLog("error.log", errName, err_url, err_type, err_param, err_json, "职位没刷新 \n刷新前时间：" + xiao + "\n 刷新后时间：" + da);
+			throw new RuntimeException("职位没刷新 \n刷新前时间：" + xiao + "\n 刷新后时间：" + da);
+		}
+	}
+	
+	/**
+	 * 
+	 * @param jobnum
+	 */
+	@When("^从\"([^\"]*)\"中取出jobid$")
+	public void getJobId(String jobnum){
+		jobnum = filter.filterValue(jobnum);
+		jobnum = jobnum.substring(jobnum.indexOf("J")+1);
+		for(int i=0; i<jobnum.length(); i++){
+			
+			if(jobnum.charAt(i) != '0'){
+				jobnum = jobnum.substring(i);
+				break;
+			}
+		}
+		filter.values.put("{jobid}", jobnum);
+		System.out.println(jobnum);
+	}
+		
+	@When("^验证职位刷新了key=\"([^\"]*)\"$")
+	public void refreshTest(String keyStr) throws ParseException{
+		
+		DateUtil du = new DateUtil();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); 
+		Date thisDate = new Date();
+		int thisM = thisDate.getMinutes();
+		int thisH = thisDate.getHours();
+		int thisD = thisDate.getDay();
+		String s = JsonHelper.getValue(json, keyStr.split(","));
+		Date reDate = sdf.parse(s);
+		int reM = reDate.getMinutes();
+		int reH = reDate.getHours();
+		int reD = reDate.getDay();
+		
+		if(thisD-reD == 1){//刷新时间是昨天
+			return;
+		}
+		if(thisD==reD){//是同一天
+			if(thisH-reH <= 1){//是最近一小时内 
+				if(reM > 50 || reM < 20){//分钟范围在50以上或者20以下
+					return;
+				}
+			}
+			if(thisH >= 21){//晚上9点之后
+				return;
+			}
+		}
+		throw new RuntimeException("职位刷新时间不正确  \n当前时间:" + sdf.format(thisDate)
+				+ "\n刷新时间:" + s);
+	}
+	
+	
+	/**
+	 * 
+	 * @param length
+	 */
+	@Then("^json结果中共有(\\d+)个字段$")
+	public void jsonLengthIsTrue(int length){
+		int zLength = json.split(",").length;
+		if(zLength != length){
+			errName = "###json结果字段总数不正确###";
+			String errCon = "json结果中应该有" + length + "个字段\n" + "但是实际返回了" +zLength+ "个字段";
+			OperateFileUtils.writeErrLog("error.log", errName, err_url, err_type, err_param, err_json, "职位没刷新 \n刷新前时间：" + errCon);
+			throw new RuntimeException(errCon);
+		}
+	}
+	
+	@Then("^验证\"([^\"]*)\"分钟之内,url:\"([^\"]*)\"solr会更新职位信息\"([^\"]*)\"为\"([^\"]*)\"$")
+	public void assertsxSolr(String m, String url, String key, String value)
+			throws InterruptedException {
+		url = filter.filterValue(url);
+		int time = Integer.parseInt(m);
+		String[] keys = key.split(",");
+		boolean isStop = false;
+		for (int i = 0; i < time * 60; i++) {
+			json = httpRequest.sendGet(url);
+			err_url = url;
+			err_param = null;
+			err_json = json;
+			err_type = "get";
+			if (JsonHelper.getValue(json, keys).equals(value)) {
+				isStop = true;
+				break;
+			} else {
+				Thread.sleep(1000);
+				continue;
+			}
+		}
+		if (!isStop) {
+			String errs = "等到" + time + "分钟后" + key + "的值仍未变成" + value
+					+ "\n 实际返回的 " + key + ":" + JsonHelper.getValue(json, keys);
+			errName = "可能是solr等数据同步未等到，请确认solr的消息队列是否堵塞";
+			OperateFileUtils.writeErrLog("error.log", errName, err_url, err_type, err_param, err_json, errs);
+			throw new RuntimeException(errs + "\n url:" + url + "\n json:" + json);
+		}
+	}
+	
+	
+	
+	public static void main(String[] args){
+		Step ste = new Step();
+		json = "\"startDate\":\"2016-12-31 00:33:08\",\"refreshDate\":1483233046554,\"endDate\":\"2017-01-30 00:33:08\"";
+		ste.refresh("aaaa");
+	}
+	
+	@After
+	public void afterScenario(Scenario scenario) {
+		/*if (scenario.isFailed()) {
+			if (err_type.equals("post")) {
+				scenario.write("URL: " + err_url + "\n" + "参数: "
+						+ err_param + "\n" + "请求类型: " + err_type + "\n"
+						+ "返回值: " + err_json);
+				OperateFileUtils.writeFile("error.log", "URL: " + err_url
+						+ "\r\n" + "参数: " + err_param + "\r\n" + "请求类型: "
+						+ err_type + "\r\n" + "返回值: " + err_json + "\r\n"
+						+ "\r\n");
+			} else if (err_type.equals("get")) {
+				scenario.write("URL: " + err_url + "\n" + "请求类型: "
+						+ err_type + "\n" + "返回值: " + err_json);
+				OperateFileUtils.writeFile("error.log", "URL: " + err_url
+						+ "\r\n" + "请求类型: " + err_type + "\r\n" + "返回值: "
+						+ err_json + "\r\n" + "\r\n");
+			}
+		}
+//		WXFilter.addErrs(err_url);*/
+	}
+
+}

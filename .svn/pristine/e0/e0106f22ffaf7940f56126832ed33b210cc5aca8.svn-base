@@ -1,0 +1,58 @@
+@qa_mobile_senario_sumScenario_detail
+Feature: 发送手机验证码/注册用户/注册公司信息/登录/登录_by_token/修改密码
+	@st 
+	Scenario: init
+		When 保存一个变量key="{url}",value="http://api-qa.zhaopin.com/"
+		When 保存一个变量key="{path}",value="passport/register"
+  		When 生产一个随机phoneNumber,以"{phone_number}"命名保存
+  		When 保存一个变量key="{pwd}",value="qwe123"
+  		#When 保存一个变量key="{phone_number}",value="13649060499"
+  		#When 保存一个变量key="{access_token}",value="c236aaba5ff0491f9e46d3f80ad550ba"
+    	#When 保存一个变量key="{refreshToken}",value="aa273412911848c6b5506d142e6c5e6d"
+   	
+	@st		
+	Scenario: 注册用户_基本功能
+  		When 调用GET接口,url:"{url}passport/sendmobilecode?mobile={phone_number}&type=40"
+    	Then json结果中包含"'code':200,'message':'操作成功'"
+    	When 调用GET接口,url:"http://mobileapi.zhaopin.com/test/mcode.do?mobile={phone_number}&p=1q2w3e4r.com"
+   		When 把"data,verifyCode"以"{verifyCode}"命名保存
+  		When 调用POST_Json接口,testContent:"注册成功",url:"{url}{path}",param:"{'mobile':'{phone_number}','pwd':'{pwd}','checkcode':'{verifyCode}'}"
+		When 把"data,accessToken"以"{access_token}"命名保存
+   		When 把"data,refreshToken"以"{refresh_Token}"命名保存
+   		Then json结果中包含"'code':200,'message':null,'success':true"
+   		Then json结果中共有6个字段
+    		
+	@st
+    Scenario: 注册公司信息第二步
+    	When 设置at为"{access_token}"
+    	When 设置rt为"{refresh_Token}"
+    	When 调用POST_Json接口,testContent:"注册公司信息第二步",url:"{url}passport/registercompany",param:"{'companyName':'这是大于4位测试','cityId':530,'staffName':'联系人','nickName':'这是6位昵称','sex':1,'phone':'','userName':'{phone_number}','email':'3221112@qq.com'}"
+    	Then json结果中包含"'code':200,'accessToken':'{access_token}','refreshToken':'{refresh_Token}','companyRegistered':true,'needCheckcode':false,'message':'操作成功','success':true"
+
+  	@st 
+    Scenario: 登录
+    	When 等待1"分钟"
+		When 调用POST_Json接口,testContent:"登录",url:"{url}passport/login",param:"{'loginName':'{phone_number}','pwd':'{pwd}','checkId':'','checkCode':''}"
+		Then json结果中包含"'code':200,'message':null,'success':true,'needCheckcode':false,'companyRegistered':true,'userStatus':10,'userType':153,'name':'{phone_number}'"
+		When 把"data,accessToken"以"{access_token}"命名保存
+    	When 把"data,refreshToken"以"{refresh_Token}"命名保存
+	
+   	@st
+	Scenario: 登录_by_token
+    	When 设置at为"{access_token}"
+    	When 设置rt为"{refresh_Token}"
+   		When 调用GET接口,testContent:"登录_by_token",url:"{url}passport/tokeninfo"
+  		Then json结果中包含"'code':200,'message':null,'success':true,'needCheckcode':false,'companyRegistered':true,'userStatus':10,'userType':153,'name':'{phone_number}'"
+	
+
+   	@st	
+	Scenario: 修改密码
+		When 等待1"分钟" 
+		When 调用GET接口,url:"{url}passport/sendmobilecode?mobile={phone_number}&type=50"
+		When 调用GET接口,url:"http://mobileapi.zhaopin.com/test/mcode.do?mobile={phone_number}&p=1q2w3e4r.com"
+    	When 把"data,verifyCode"以"{verifyCode}"命名保存
+    	When 调用POST_Json接口,testContent:"修改密码",url:"{url}passport/changepassword",param:"{'pwd':'qwe456','mobile':'{phone_number}','code':'{verifyCode}'}"
+    	When 保存一个变量key="{pwd}",value="qwe456"
+    	Then json结果中包含"'code':200,'message':'操作成功','success':true"
+
+   		

@@ -1,0 +1,48 @@
+@qa_mobile_scenario_login&login_by_token
+Feature: ihr平台/rd平台/c端用户登录
+		
+	Scenario: init
+		When 保存一个变量key="{url}",value="http://api-qa.zhaopin.com/"
+		When 保存一个变量key="{path}",value="passport/login"
+  		When 保存一个变量key="{pwd}",value="123456"
+  		When 保存一个变量key="{ihr}",value="pctest011"
+  		When 保存一个变量key="{rd}",value="testdep"
+  		When 保存一个变量key="{c_client}",value="lianxl201@163.com"
+  		
+	Scenario Outline: <comment>
+		When 等待1"分钟"
+		When 调用POST_Json接口,testContent:"登录",url:"{url}{path}",param:"{<loginName><pwd>,'checkId':'','checkCode':''}"
+		Then json结果中包含"<code><message><success><needCheckcode><companyRegistered><userStatus><userType><name>"
+		When 把"data,accessToken"以"{access_token}"命名保存
+    	When 把"data,refreshToken"以"{refresh_Token}"命名保存
+    	
+    	#验证登录_by_token
+    	When 设置at为"{access_token}"
+    	When 设置rt为"{refresh_Token}"
+   		When 调用GET接口,testContent:"登录_by_token",url:"{url}passport/tokeninfo"
+  		Then json结果中包含"<code><message><success><needCheckcode><companyRegistered><userStatus><userType><name>"
+  		
+		Examples: 
+    	|comment  		|loginName|pwd|code|message|success|needCheckcode|companyRegistered|userType|userStatus|name|
+    	|登录ihr用户usertype=153|'loginName':'{ihr}',|'pwd':'test{pwd}'|'code':200,|'message':null,|'success':true,|'needCheckcode':false,|'companyRegistered':true,|'userStatus':20,|'userType':153,|'name':'{ihr}'|
+		|登录rd用户usertype=102|'loginName':'{rd}',|'pwd':'{pwd}'|'code':200,|'message':null,|'success':true,|'needCheckcode':false,|'companyRegistered':true,|'userStatus':20,|'userType':102,|'name':'{rd}'|
+	
+    	
+	Scenario Outline: <comment>
+		When 等待1"分钟"
+		When 调用POST_Json接口,testContent:"登录",url:"{url}{path}",param:"{<loginName><pwd>,'checkId':'','checkCode':''}"
+		Then json结果中包含"<code><message><success>"
+		When 把"data,accessToken"以"{access_token}"命名保存
+    	When 把"data,refreshToken"以"{refresh_Token}"命名保存
+    	
+    	#验证登录_by_token
+    	When 设置at为"{access_token}"
+    	When 设置rt为"{refresh_Token}"
+   		When 调用GET接口,testContent:"登录_by_token",url:"{url}passport/tokeninfo"
+  		Then json结果中包含"<code_b><message_b><success_b>"
+  		
+		Examples: 
+    	|comment  		|loginName|pwd|code|message|success|code_b|message_b|success_b|
+    	|登录c端用户|'loginName':'{c_client}',|'pwd':'test'|'code':22003,|'message':'用户名或密码错误',|'success':false|'code':404,|'message':'未找到',|'success':false|
+    	
+    	

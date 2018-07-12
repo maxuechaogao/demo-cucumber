@@ -1,0 +1,13 @@
+@qa_mobile_allbasedata_detail
+Feature: 基础数据
+	@st @at
+	Scenario: init
+		When 保存一个变量key="{url}",value="http://api-qa.zhaopin.com/"
+		When 保存一个变量key="{path}",value="settings/allbasedata?"
+		When 生产一个随机phoneNumber,以"{phone_number}"命名保存
+  		When 保存一个变量key="{pwd}",value="qwe123"
+  		When 保存一个变量key="{pwd_new}",value="qwe456"
+  	@st	@at
+  	Scenario: 成功请求接口
+		When 调用GET接口,testContent:"发送验证码",url:"{url}{path}version=-1"
+    	Then json结果中包含"'code':200,'message':'','success':true"

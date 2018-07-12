@@ -1,0 +1,4628 @@
+[
+  {
+    "line": 2,
+    "elements": [
+      {
+        "line": 3,
+        "name": "init",
+        "description": "",
+        "id": "基础数据;init",
+        "after": [
+          {
+            "result": {
+              "duration": 103708,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Step.afterScenario(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 322061607,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "保存一个变量key\u003d\"{url}\",value\u003d\"http://api-qa.zhaopin.com\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{url}",
+                  "offset": 11
+                },
+                {
+                  "val": "http://api-qa.zhaopin.com",
+                  "offset": 25
+                }
+              ],
+              "location": "Step.saveBl(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 193155,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "保存一个变量key\u003d\"{path}\",value\u003d\"/settings/allbasedata\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{path}",
+                  "offset": 11
+                },
+                {
+                  "val": "/settings/allbasedata",
+                  "offset": 26
+                }
+              ],
+              "location": "Step.saveBl(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 723329,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "生产一个随机phoneNumber,以\"{phone_number}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{phone_number}",
+                  "offset": 20
+                }
+              ],
+              "location": "Step.randomPhonenumber(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 514765,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "设置fromsystem为\"23\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "23",
+                  "offset": 14
+                }
+              ],
+              "location": "Step.setfromsystem(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 95287,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "设置deviceid为\"qwertyu\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "qwertyu",
+                  "offset": 12
+                }
+              ],
+              "location": "Step.setdeviceid(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 2755899,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "生产一个当前时间戳,以\"{r}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{r}",
+                  "offset": 12
+                }
+              ],
+              "location": "Step.randMilltime(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1066923,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "生成一个md5key,以\"{md5key}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{md5key}",
+                  "offset": 13
+                }
+              ],
+              "location": "Step.randMd5key(String)"
+            },
+            "keyword": "When "
+          }
+        ]
+      },
+      {
+        "line": 11,
+        "name": "成功请求接口",
+        "description": "",
+        "id": "基础数据;成功请求接口",
+        "after": [
+          {
+            "result": {
+              "duration": 28973,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Step.afterScenario(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1355510260,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "调用GET接口,testContent:\"基础数据\",url:\"{url}{path}?r\u003d{r}\u0026key\u003d{md5key}\u0026version\u003ddd\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "基础数据",
+                  "offset": 21
+                },
+                {
+                  "val": "{url}{path}?r\u003d{r}\u0026key\u003d{md5key}\u0026version\u003ddd",
+                  "offset": 32
+                }
+              ],
+              "location": "Step.send_get(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 6217595,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "json结果中包含\"\u0027code\u0027:200,\u0027message\u0027:\u0027\u0027,\u0027success\u0027:true\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\u0027code\u0027:200,\u0027message\u0027:\u0027\u0027,\u0027success\u0027:true",
+                  "offset": 10
+                }
+              ],
+              "location": "Step.isHaveString(String)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "基础数据",
+    "description": "",
+    "id": "基础数据",
+    "keyword": "Feature",
+    "uri": "qa_mobile_allbasedata_smoke.feature",
+    "tags": [
+      {
+        "line": 1,
+        "name": "@qa_mobile_allbasedata_smoke"
+      }
+    ]
+  },
+  {
+    "line": 2,
+    "elements": [
+      {
+        "line": 4,
+        "name": "init",
+        "description": "",
+        "id": "发布/修改职位/简历分享/详情;init",
+        "after": [
+          {
+            "result": {
+              "duration": 11506,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Step.afterScenario(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 114153,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "保存一个变量key\u003d\"{url}\",value\u003d\"http://api-qa.zhaopin.com\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{url}",
+                  "offset": 11
+                },
+                {
+                  "val": "http://api-qa.zhaopin.com",
+                  "offset": 25
+                }
+              ],
+              "location": "Step.saveBl(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 70722,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "保存一个变量key\u003d\"{phone_number}\",value\u003d\"qaautotest\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{phone_number}",
+                  "offset": 11
+                },
+                {
+                  "val": "qaautotest",
+                  "offset": 34
+                }
+              ],
+              "location": "Step.saveBl(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 55391,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "保存一个变量key\u003d\"{pwd}\",value\u003d\"zhaopin123\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{pwd}",
+                  "offset": 11
+                },
+                {
+                  "val": "zhaopin123",
+                  "offset": 25
+                }
+              ],
+              "location": "Step.saveBl(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 41721,
+              "status": "passed"
+            },
+            "comments": [
+              {
+                "line": 8,
+                "value": "#    When 保存一个变量key\u003d\"{access_token}\",value\u003d\"39f63a75fe74414ba128bfc136dbe2f0\""
+              },
+              {
+                "line": 9,
+                "value": "#    When 保存一个变量key\u003d\"{refresh_Token}\",value\u003d\"8b6f33f1f9c543b7a398d6f6509c7f8d\""
+              }
+            ],
+            "line": 10,
+            "name": "保存一个变量key\u003d\"{jobtitle}\",value\u003d\"%E4%BA%BA%E5%B7%A5%E6%8C%96%E7%9F%B3%E6%B2%B9\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{jobtitle}",
+                  "offset": 11
+                },
+                {
+                  "val": "%E4%BA%BA%E5%B7%A5%E6%8C%96%E7%9F%B3%E6%B2%B9",
+                  "offset": 30
+                }
+              ],
+              "location": "Step.saveBl(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 49148,
+              "status": "passed"
+            },
+            "comments": [
+              {
+                "line": 11,
+                "value": "# qa简历编号"
+              }
+            ],
+            "line": 12,
+            "name": "保存一个变量key\u003d\"{resumenumber}\",value\u003d\"UdlE0XeKPbKLd6fGuJR6ezH2MqC0Ifbo\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{resumenumber}",
+                  "offset": 11
+                },
+                {
+                  "val": "UdlE0XeKPbKLd6fGuJR6ezH2MqC0Ifbo",
+                  "offset": 34
+                }
+              ],
+              "location": "Step.saveBl(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 46075,
+              "status": "passed"
+            },
+            "comments": [
+              {
+                "line": 13,
+                "value": "# 职位模板名称"
+              }
+            ],
+            "line": 14,
+            "name": "保存一个变量key\u003d\"{jobmoduletitle}\",value\u003d\"jobmodule123\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{jobmoduletitle}",
+                  "offset": 11
+                },
+                {
+                  "val": "jobmodule123",
+                  "offset": 36
+                }
+              ],
+              "location": "Step.saveBl(String,String)"
+            },
+            "keyword": "When "
+          }
+        ]
+      },
+      {
+        "line": 16,
+        "name": "登录",
+        "description": "",
+        "id": "发布/修改职位/简历分享/详情;登录",
+        "after": [
+          {
+            "result": {
+              "duration": 28124,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Step.afterScenario(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 118622,
+              "status": "passed"
+            },
+            "comments": [
+              {
+                "line": 17,
+                "value": "#    When 等待1\"分钟\""
+              }
+            ],
+            "line": 18,
+            "name": "保存一个变量key\u003d\"{path}\",value\u003d\"/passport/login\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{path}",
+                  "offset": 11
+                },
+                {
+                  "val": "/passport/login",
+                  "offset": 26
+                }
+              ],
+              "location": "Step.saveBl(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 38773,
+              "status": "passed"
+            },
+            "line": 19,
+            "name": "设置fromsystem为\"23\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "23",
+                  "offset": 14
+                }
+              ],
+              "location": "Step.setfromsystem(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 31111,
+              "status": "passed"
+            },
+            "line": 20,
+            "name": "设置deviceid为\"qwertyu\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "qwertyu",
+                  "offset": 12
+                }
+              ],
+              "location": "Step.setdeviceid(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 381420,
+              "status": "passed"
+            },
+            "line": 21,
+            "name": "生产一个当前时间戳,以\"{r}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{r}",
+                  "offset": 12
+                }
+              ],
+              "location": "Step.randMilltime(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 94356,
+              "status": "passed"
+            },
+            "line": 22,
+            "name": "生成一个md5key,以\"{md5key}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{md5key}",
+                  "offset": 13
+                }
+              ],
+              "location": "Step.randMd5key(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 485421565,
+              "status": "passed"
+            },
+            "line": 23,
+            "name": "调用POST_Json接口,testContent:\"登录\",url:\"{url}{path}?r\u003d{r}\u0026key\u003d{md5key}\",param:\"{\u0027loginName\u0027:\u0027{phone_number}\u0027,\u0027pwd\u0027:\u0027{pwd}\u0027,\u0027checkId\u0027:\u0027\u0027,\u0027checkCode\u0027:\u0027\u0027}\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "登录",
+                  "offset": 27
+                },
+                {
+                  "val": "{url}{path}?r\u003d{r}\u0026key\u003d{md5key}",
+                  "offset": 36
+                },
+                {
+                  "val": "{\u0027loginName\u0027:\u0027{phone_number}\u0027,\u0027pwd\u0027:\u0027{pwd}\u0027,\u0027checkId\u0027:\u0027\u0027,\u0027checkCode\u0027:\u0027\u0027}",
+                  "offset": 75
+                }
+              ],
+              "location": "Step.send_json_post(String,String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 15631123,
+              "status": "passed"
+            },
+            "line": 24,
+            "name": "json结果中包含\"\u0027code\u0027:200,\u0027message\u0027:null,\u0027success\u0027:true,\u0027needCheckcode\u0027:false,\u0027companyRegistered\u0027:true,\u0027userStatus\u0027:20,\u0027userType\u0027:153,\u0027name\u0027:\u0027{phone_number}\u0027\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\u0027code\u0027:200,\u0027message\u0027:null,\u0027success\u0027:true,\u0027needCheckcode\u0027:false,\u0027companyRegistered\u0027:true,\u0027userStatus\u0027:20,\u0027userType\u0027:153,\u0027name\u0027:\u0027{phone_number}\u0027",
+                  "offset": 10
+                }
+              ],
+              "location": "Step.isHaveString(String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 53752125,
+              "status": "passed"
+            },
+            "line": 25,
+            "name": "把\"data,accessToken\"以\"{access_token}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "data,accessToken",
+                  "offset": 2
+                },
+                {
+                  "val": "{access_token}",
+                  "offset": 21
+                }
+              ],
+              "location": "Step.save(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1870707,
+              "status": "passed"
+            },
+            "line": 26,
+            "name": "把\"data,refreshToken\"以\"{refresh_Token}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "data,refreshToken",
+                  "offset": 2
+                },
+                {
+                  "val": "{refresh_Token}",
+                  "offset": 22
+                }
+              ],
+              "location": "Step.save(String,String)"
+            },
+            "keyword": "When "
+          }
+        ]
+      },
+      {
+        "line": 28,
+        "name": "发布职位",
+        "description": "",
+        "id": "发布/修改职位/简历分享/详情;发布职位",
+        "after": [
+          {
+            "result": {
+              "duration": 18042,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Step.afterScenario(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 139939,
+              "status": "passed"
+            },
+            "line": 29,
+            "name": "设置cookie",
+            "match": {
+              "location": "Step.setcookie()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1706880128,
+              "status": "passed"
+            },
+            "line": 30,
+            "name": "调用POST接口,url:\"{url}/ihrapi/job2/jobadd?access_token\u003d{access_token}\",param:\"type\u003d1\u0026platsource\u003d1\u0026platpublishsource\u003d1\u0026enddate\u003d30\u0026quantity\u003d12\u0026monthsalary\u003d0000001000\u0026minyears\u003d1099\u0026mineducationlevel\u003d1\u0026jobtitle\u003d{jobtitle}\u0026jobTypeMain\u003d160400\u0026subJobTypeMain\u003d693\u0026provinceid\u003d560\u0026cityid\u003d10061\u0026jobdescription\u003d1%E3%80%81%20%E6%B2%B9%E6%B0%94%E8%97%8F%E5%8B%98%E6%8E%A2%E3%80%81%E8%AF%84%E4%BB%B7%E3%80%81%E5%82%A8%E9%87%8F%E3%80%81%E5%BC%80%E5%8F%91%E7%AD%89%E4%B8%9A%E5%8A%A1%E6%8A%80%E6%9C%AF%E5%88%86%E6%9E%90%EF%BC%9B%202%E3%80%81%E8%BE%85%E5%8A%A9%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%96%BD%EF%BC%9B%203%E3%80%81%E5%8D%8F%E5%8A%A9%E5%89%8D%E6%9C%9F%E6%8A%80%E6%9C%AF%E4%BA%A4%E6%B5%81%EF%BC%9B%204%E3%80%81%E5%AF%B9%E7%9B%B8%E5%85%B3%E5%9C%B0%E8%B4%A8%E6%96%B9%E5%90%91%E6%B6%89%E5%8F%8A%E5%9C%B0%E8%B4%A8%E9%97%AE%E9%A2%98%E8%BF%9B%E8%A1%8C%E6%8A%80%E6%9C%AF%E6%94%AF%E6%8C%81%E3%80%82%20%E4%BB%BB%E8%81%8C%E8%A6%81%E6%B1%82%EF%BC%9A%20%E6%9C%89%E5%9C%B0%E8%B4%A8%E6%89%80%E5%B7%A5%E4%BD%9C%E7%BB%8F%E9%AA%8C%EF%BC%8C%E6%88%96%E8%80%85%E5%9C%B0%E8%B4%A8%E7%B1%BB%E7%A0%94%E7%A9%B6%E9%A1%B9%E7%9B%AE%E7%BB%8F%E9%AA%8C%E3%80%82%E5%9C%B0%E8%B4%A8%E5%8F%8A%E7%9B%B8%E5%85%B3%E4%B8%93%E4%B8%9A%E4%BC%98%E5%85%88%E8%80%83%E8%99%91%EF%BC%81\u0026benefit\u003d10000,10001\u0026workplace\u003d哈尔滨\u0026positionnature\u003d1\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{url}/ihrapi/job2/jobadd?access_token\u003d{access_token}",
+                  "offset": 14
+                },
+                {
+                  "val": "type\u003d1\u0026platsource\u003d1\u0026platpublishsource\u003d1\u0026enddate\u003d30\u0026quantity\u003d12\u0026monthsalary\u003d0000001000\u0026minyears\u003d1099\u0026mineducationlevel\u003d1\u0026jobtitle\u003d{jobtitle}\u0026jobTypeMain\u003d160400\u0026subJobTypeMain\u003d693\u0026provinceid\u003d560\u0026cityid\u003d10061\u0026jobdescription\u003d1%E3%80%81%20%E6%B2%B9%E6%B0%94%E8%97%8F%E5%8B%98%E6%8E%A2%E3%80%81%E8%AF%84%E4%BB%B7%E3%80%81%E5%82%A8%E9%87%8F%E3%80%81%E5%BC%80%E5%8F%91%E7%AD%89%E4%B8%9A%E5%8A%A1%E6%8A%80%E6%9C%AF%E5%88%86%E6%9E%90%EF%BC%9B%202%E3%80%81%E8%BE%85%E5%8A%A9%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%96%BD%EF%BC%9B%203%E3%80%81%E5%8D%8F%E5%8A%A9%E5%89%8D%E6%9C%9F%E6%8A%80%E6%9C%AF%E4%BA%A4%E6%B5%81%EF%BC%9B%204%E3%80%81%E5%AF%B9%E7%9B%B8%E5%85%B3%E5%9C%B0%E8%B4%A8%E6%96%B9%E5%90%91%E6%B6%89%E5%8F%8A%E5%9C%B0%E8%B4%A8%E9%97%AE%E9%A2%98%E8%BF%9B%E8%A1%8C%E6%8A%80%E6%9C%AF%E6%94%AF%E6%8C%81%E3%80%82%20%E4%BB%BB%E8%81%8C%E8%A6%81%E6%B1%82%EF%BC%9A%20%E6%9C%89%E5%9C%B0%E8%B4%A8%E6%89%80%E5%B7%A5%E4%BD%9C%E7%BB%8F%E9%AA%8C%EF%BC%8C%E6%88%96%E8%80%85%E5%9C%B0%E8%B4%A8%E7%B1%BB%E7%A0%94%E7%A9%B6%E9%A1%B9%E7%9B%AE%E7%BB%8F%E9%AA%8C%E3%80%82%E5%9C%B0%E8%B4%A8%E5%8F%8A%E7%9B%B8%E5%85%B3%E4%B8%93%E4%B8%9A%E4%BC%98%E5%85%88%E8%80%83%E8%99%91%EF%BC%81\u0026benefit\u003d10000,10001\u0026workplace\u003d哈尔滨\u0026positionnature\u003d1",
+                  "offset": 75
+                }
+              ],
+              "location": "Step.send_post(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1372579,
+              "status": "passed"
+            },
+            "line": 31,
+            "name": "把\"data,jobNumber\"以\"{jobNumber}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "data,jobNumber",
+                  "offset": 2
+                },
+                {
+                  "val": "{jobNumber}",
+                  "offset": 19
+                }
+              ],
+              "location": "Step.save(String,String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 197806,
+              "status": "passed"
+            },
+            "line": 32,
+            "name": "json结果中包含\"\u0027code\u0027:200,\u0027data\u0027:{\u0027haveBadWords\u0027:false,\u0027jobNumber\u0027:\u0027{jobNumber}\u0027,\u0027jobStyle\u0027:\u0027CommonJob\u0027,\u0027jobTitle\u0027:\u0027人工挖石油\u0027,\u0027jobmobileTopCount\u0027:0,\u0027jobonsiteCount\u0027:0,\u0027jobrefreshCount\u0027:0,\u0027jobtimeCount\u0027:10,\u0027jobtimetopCount\u0027:0,\u0027jobtop\u0027:0,\u0027packages\u0027:0,\u0027result\u0027:\u0027ok\u0027,\u0027userstatus\u0027:20},\u0027message\u0027:\u0027添加成功\u0027,\u0027success\u0027:true,\u0027taskId\u0027:null\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\u0027code\u0027:200,\u0027data\u0027:{\u0027haveBadWords\u0027:false,\u0027jobNumber\u0027:\u0027{jobNumber}\u0027,\u0027jobStyle\u0027:\u0027CommonJob\u0027,\u0027jobTitle\u0027:\u0027人工挖石油\u0027,\u0027jobmobileTopCount\u0027:0,\u0027jobonsiteCount\u0027:0,\u0027jobrefreshCount\u0027:0,\u0027jobtimeCount\u0027:10,\u0027jobtimetopCount\u0027:0,\u0027jobtop\u0027:0,\u0027packages\u0027:0,\u0027result\u0027:\u0027ok\u0027,\u0027userstatus\u0027:20},\u0027message\u0027:\u0027添加成功\u0027,\u0027success\u0027:true,\u0027taskId\u0027:null",
+                  "offset": 10
+                }
+              ],
+              "location": "Step.isHaveString(String)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 34,
+        "name": "修改职位-增加智能刷新",
+        "description": "",
+        "id": "发布/修改职位/简历分享/详情;修改职位-增加智能刷新",
+        "after": [
+          {
+            "result": {
+              "duration": 13724,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Step.afterScenario(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 196634,
+              "status": "passed"
+            },
+            "line": 35,
+            "name": "设置cookie",
+            "match": {
+              "location": "Step.setcookie()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1041370144,
+              "status": "passed"
+            },
+            "line": 36,
+            "name": "调用POST接口,url:\"{url}/ihrapi/job2/jobedit?access_token\u003d{access_token}\",param:\"type\u003d2\u0026jobpostionnumber\u003d{jobNumber}\u0026dayRefreshDays\u003d1\u0026dayRefreshHour_hidden\u003d10\u0026dayRefreshTimes_hidden\u003d1\u0026dayRefreshSpan_hidden\u003d60\u0026dayRefreshMinu_hidden\u003d01\u0026isRefresh\u003d1\u0026isMobileTop\u003d1\u0026jobaddtop\u003d1\u0026platsource\u003d1\u0026platpublishsource\u003d1\u0026enddate\u003d30\u0026quantity\u003d12\u0026monthsalary\u003d0000001000\u0026minyears\u003d1099\u0026mineducationlevel\u003d1\u0026jobtitle\u003d%E4%BA%BA%E5%B7%A5%E6%8C%96%E7%9F%B3%E6%B2%B9\u0026jobTypeMain\u003d160400\u0026subJobTypeMain\u003d693\u0026provinceid\u003d560\u0026cityid\u003d10061\u0026jobdescription\u003d1%E3%80%81%20%E6%B2%B9%E6%B0%94%E8%97%8F%E5%8B%98%E6%8E%A2%E3%80%81%E8%AF%84%E4%BB%B7%E3%80%81%E5%82%A8%E9%87%8F%E3%80%81%E5%BC%80%E5%8F%91%E7%AD%89%E4%B8%9A%E5%8A%A1%E6%8A%80%E6%9C%AF%E5%88%86%E6%9E%90%EF%BC%9B%202%E3%80%81%E8%BE%85%E5%8A%A9%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%96%BD%EF%BC%9B%203%E3%80%81%E5%8D%8F%E5%8A%A9%E5%89%8D%E6%9C%9F%E6%8A%80%E6%9C%AF%E4%BA%A4%E6%B5%81%EF%BC%9B%204%E3%80%81%E5%AF%B9%E7%9B%B8%E5%85%B3%E5%9C%B0%E8%B4%A8%E6%96%B9%E5%90%91%E6%B6%89%E5%8F%8A%E5%9C%B0%E8%B4%A8%E9%97%AE%E9%A2%98%E8%BF%9B%E8%A1%8C%E6%8A%80%E6%9C%AF%E6%94%AF%E6%8C%81%E3%80%82%20%E4%BB%BB%E8%81%8C%E8%A6%81%E6%B1%82%EF%BC%9A%20%E6%9C%89%E5%9C%B0%E8%B4%A8%E6%89%80%E5%B7%A5%E4%BD%9C%E7%BB%8F%E9%AA%8C%EF%BC%8C%E6%88%96%E8%80%85%E5%9C%B0%E8%B4%A8%E7%B1%BB%E7%A0%94%E7%A9%B6%E9%A1%B9%E7%9B%AE%E7%BB%8F%E9%AA%8C%E3%80%82%E5%9C%B0%E8%B4%A8%E5%8F%8A%E7%9B%B8%E5%85%B3%E4%B8%93%E4%B8%9A%E4%BC%98%E5%85%88%E8%80%83%E8%99%91%EF%BC%81\u0026benefit\u003d10000,10001\u0026workplace\u003d%E7%9F%B3%E6%B2%B3%E5%AD%90\u0026positionnature\u003d1\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{url}/ihrapi/job2/jobedit?access_token\u003d{access_token}",
+                  "offset": 14
+                },
+                {
+                  "val": "type\u003d2\u0026jobpostionnumber\u003d{jobNumber}\u0026dayRefreshDays\u003d1\u0026dayRefreshHour_hidden\u003d10\u0026dayRefreshTimes_hidden\u003d1\u0026dayRefreshSpan_hidden\u003d60\u0026dayRefreshMinu_hidden\u003d01\u0026isRefresh\u003d1\u0026isMobileTop\u003d1\u0026jobaddtop\u003d1\u0026platsource\u003d1\u0026platpublishsource\u003d1\u0026enddate\u003d30\u0026quantity\u003d12\u0026monthsalary\u003d0000001000\u0026minyears\u003d1099\u0026mineducationlevel\u003d1\u0026jobtitle\u003d%E4%BA%BA%E5%B7%A5%E6%8C%96%E7%9F%B3%E6%B2%B9\u0026jobTypeMain\u003d160400\u0026subJobTypeMain\u003d693\u0026provinceid\u003d560\u0026cityid\u003d10061\u0026jobdescription\u003d1%E3%80%81%20%E6%B2%B9%E6%B0%94%E8%97%8F%E5%8B%98%E6%8E%A2%E3%80%81%E8%AF%84%E4%BB%B7%E3%80%81%E5%82%A8%E9%87%8F%E3%80%81%E5%BC%80%E5%8F%91%E7%AD%89%E4%B8%9A%E5%8A%A1%E6%8A%80%E6%9C%AF%E5%88%86%E6%9E%90%EF%BC%9B%202%E3%80%81%E8%BE%85%E5%8A%A9%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%96%BD%EF%BC%9B%203%E3%80%81%E5%8D%8F%E5%8A%A9%E5%89%8D%E6%9C%9F%E6%8A%80%E6%9C%AF%E4%BA%A4%E6%B5%81%EF%BC%9B%204%E3%80%81%E5%AF%B9%E7%9B%B8%E5%85%B3%E5%9C%B0%E8%B4%A8%E6%96%B9%E5%90%91%E6%B6%89%E5%8F%8A%E5%9C%B0%E8%B4%A8%E9%97%AE%E9%A2%98%E8%BF%9B%E8%A1%8C%E6%8A%80%E6%9C%AF%E6%94%AF%E6%8C%81%E3%80%82%20%E4%BB%BB%E8%81%8C%E8%A6%81%E6%B1%82%EF%BC%9A%20%E6%9C%89%E5%9C%B0%E8%B4%A8%E6%89%80%E5%B7%A5%E4%BD%9C%E7%BB%8F%E9%AA%8C%EF%BC%8C%E6%88%96%E8%80%85%E5%9C%B0%E8%B4%A8%E7%B1%BB%E7%A0%94%E7%A9%B6%E9%A1%B9%E7%9B%AE%E7%BB%8F%E9%AA%8C%E3%80%82%E5%9C%B0%E8%B4%A8%E5%8F%8A%E7%9B%B8%E5%85%B3%E4%B8%93%E4%B8%9A%E4%BC%98%E5%85%88%E8%80%83%E8%99%91%EF%BC%81\u0026benefit\u003d10000,10001\u0026workplace\u003d%E7%9F%B3%E6%B2%B3%E5%AD%90\u0026positionnature\u003d1",
+                  "offset": 76
+                }
+              ],
+              "location": "Step.send_post(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 147389,
+              "status": "passed"
+            },
+            "line": 37,
+            "name": "json结果中包含\"\u0027code\u0027:200,\u0027data\u0027:{\u0027haveBadWords\u0027:false,\u0027jobNumber\u0027:\u0027{jobNumber}\u0027,\u0027jobStyle\u0027:\u0027CommonJob\u0027,\u0027jobTitle\u0027:\u0027人工挖石油\u0027,\u0027jobmobileTopCount\u0027:0,\u0027jobonsiteCount\u0027:0,\u0027jobrefreshCount\u0027:0,\u0027jobtimeCount\u0027:0,\u0027jobtimetopCount\u0027:0,\u0027jobtop\u0027:1,\u0027packages\u0027:0,\u0027result\u0027:null,\u0027userMoney\u0027:0,\u0027userstatus\u0027:20},\u0027message\u0027:\u0027操作成功\u0027,\u0027success\u0027:true,\u0027taskId\u0027:null\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\u0027code\u0027:200,\u0027data\u0027:{\u0027haveBadWords\u0027:false,\u0027jobNumber\u0027:\u0027{jobNumber}\u0027,\u0027jobStyle\u0027:\u0027CommonJob\u0027,\u0027jobTitle\u0027:\u0027人工挖石油\u0027,\u0027jobmobileTopCount\u0027:0,\u0027jobonsiteCount\u0027:0,\u0027jobrefreshCount\u0027:0,\u0027jobtimeCount\u0027:0,\u0027jobtimetopCount\u0027:0,\u0027jobtop\u0027:1,\u0027packages\u0027:0,\u0027result\u0027:null,\u0027userMoney\u0027:0,\u0027userstatus\u0027:20},\u0027message\u0027:\u0027操作成功\u0027,\u0027success\u0027:true,\u0027taskId\u0027:null",
+                  "offset": 10
+                }
+              ],
+              "location": "Step.isHaveString(String)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 39,
+        "name": "创建简历分享",
+        "description": "",
+        "id": "发布/修改职位/简历分享/详情;创建简历分享",
+        "after": [
+          {
+            "result": {
+              "duration": 17307,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Step.afterScenario(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 126237,
+              "status": "passed"
+            },
+            "line": 40,
+            "name": "设置cookie",
+            "match": {
+              "location": "Step.setcookie()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 54991,
+              "status": "passed"
+            },
+            "line": 41,
+            "name": "保存一个变量key\u003d\"{path}\",value\u003d\"/appapi/user/createshareinfo\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{path}",
+                  "offset": 11
+                },
+                {
+                  "val": "/appapi/user/createshareinfo",
+                  "offset": 26
+                }
+              ],
+              "location": "Step.saveBl(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 31094,
+              "status": "passed"
+            },
+            "line": 42,
+            "name": "设置fromsystem为\"23\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "23",
+                  "offset": 14
+                }
+              ],
+              "location": "Step.setfromsystem(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 46010,
+              "status": "passed"
+            },
+            "line": 43,
+            "name": "设置deviceid为\"qwertyu\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "qwertyu",
+                  "offset": 12
+                }
+              ],
+              "location": "Step.setdeviceid(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 539784,
+              "status": "passed"
+            },
+            "line": 44,
+            "name": "生产一个当前时间戳,以\"{r}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{r}",
+                  "offset": 12
+                }
+              ],
+              "location": "Step.randMilltime(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 474635,
+              "status": "passed"
+            },
+            "line": 45,
+            "name": "生成一个md5key,以\"{md5key}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{md5key}",
+                  "offset": 13
+                }
+              ],
+              "location": "Step.randMd5key(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 116736954,
+              "status": "passed"
+            },
+            "line": 46,
+            "name": "调用POST_Json接口,url:\"{url}{path}?access_token\u003d{access_token}\",param:\"{\u0027sharetype\u0027:1,\u0027jobnumber\u0027:\u0027{jobNumber}\u0027,\u0027jobtitle\u0027:\u0027{jobtitle}\u0027,\u0027resumenumber\u0027:\u0027{resumenumber}_1_1\u0027,\u0027resumesource\u0027:2}\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{url}{path}?access_token\u003d{access_token}",
+                  "offset": 19
+                },
+                {
+                  "val": "{\u0027sharetype\u0027:1,\u0027jobnumber\u0027:\u0027{jobNumber}\u0027,\u0027jobtitle\u0027:\u0027{jobtitle}\u0027,\u0027resumenumber\u0027:\u0027{resumenumber}_1_1\u0027,\u0027resumesource\u0027:2}",
+                  "offset": 67
+                }
+              ],
+              "location": "Step.send_json_post(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 133179,
+              "status": "passed"
+            },
+            "line": 47,
+            "name": "json结果中包含\"\u0027code\u0027:200,\u0027message\u0027:\u0027\u0027,\u0027success\u0027:true\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\u0027code\u0027:200,\u0027message\u0027:\u0027\u0027,\u0027success\u0027:true",
+                  "offset": 10
+                }
+              ],
+              "location": "Step.isHaveString(String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 210619,
+              "status": "passed"
+            },
+            "line": 48,
+            "name": "把\"data\"以\"{data}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "data",
+                  "offset": 2
+                },
+                {
+                  "val": "{data}",
+                  "offset": 9
+                }
+              ],
+              "location": "Step.save(String,String)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "comments": [
+          {
+            "line": 50,
+            "value": "#    When 步骤:获取简历详情"
+          },
+          {
+            "line": 51,
+            "value": "#    When 设置cookie"
+          },
+          {
+            "line": 52,
+            "value": "#    When 调用GET接口,url:\"{data}\""
+          },
+          {
+            "line": 53,
+            "value": "#    Then json结果中包含\"\u0027code\u0027:200,\u0027data\u0027:{\u0027detialJSonStr\u0027:\u0027{\\\u0027ResumeId\\\u0027:9,\\\u0027VersionNumber\\\u0027:1,\\\u0027UserMasterId\\\u0027:640832771,\\\u0027DisclosureLevel\\\u0027:2,\\\u0027TemplateUrl\\\u0027:\\\u0027\\\u0027,\\\u0027ResumeName\\\u0027:\\\u0027项目管理\\\\/项目协调11年甘肃\\\u0027,\\\u0027ResumeSourceId\\\u0027:0,\\\u0027WorkYearsRangeId\\\u0027:200502,\\\u0027ResumeType\\\u0027:1,\\\u0027TravelOption\\\u0027:0,\\\u0027AvailableAfterDays\\\u0027:0,\\\u0027DesiredSalaryScope\\\u0027:100002000,\\\u0027DesiredEmploymentType\\\u0027:\\\u00272\\\u0027,\\\u0027DesiredCity\\\u0027:\\\u0027557\\\u0027,\\\u0027DesiredIndustry\\\u0027:\\\u0027140200\\\u0027,\\\u0027DesiredCompanySize\\\u0027:\\\u0027\\\u0027,\\\u0027DesiredCompanyType\\\u0027:\\\u0027\\\u0027,\\\u0027CurrentCareerStatus\\\u0027:1,\\\u0027IsPost\\\u0027:\\\u0027n\\\u0027,\\\u0027IsActive\\\u0027:\\\u0027y\\\u0027,\\\u0027IsEditable\\\u0027:\\\u0027y\\\u0027,\\\u0027ExposureCount\\\u0027:0,\\\u0027HitCount\\\u0027:0,\\\u0027DownloadCount\\\u0027:0,\\\u0027PostCount\\\u0027:0,\\\u0027Url\\\u0027:\\\u0027\\\u0027,\\\u0027CreatedBy\\\u0027:640832771,\\\u0027ModifiedBy\\\u0027:640832771,\\\u0027DateCreated\\\u0027:\\\u0027\\\\/Date(1459475821533+0800)\\\\/\\\u0027,\\\u0027DateModified\\\u0027:\\\u0027\\\\/Date(1490612404293+0800)\\\\/\\\u0027,\\\u0027DateLastViewed\\\u0027:null,\\\u0027CurrentEducationLevel\\\u0027:3,\\\u0027CurrentIndustry\\\u0027:\\\u0027\\\u0027,\\\u0027CurrentJobType\\\u0027:\\\u0027\\\u0027,\\\u0027EmployeesManaged\\\u0027:0,\\\u0027CurrentSalary\\\u0027:0,\\\u0027DateLastReleased\\\u0027:\\\u0027\\\\/Date(1490612404293+0800)\\\\/\\\u0027,\\\u0027IsRelease\\\u0027:\\\u0027n\\\u0027,\\\u0027ZpSourceId\\\u0027:0,\\\u0027ResumeNumber\\\u0027:\\\u0027JM408327710R90250000000\\\u0027,\\\u0027DefaultResumeLanguage\\\u0027:0,\\\u0027DefaultResumeDate\\\u0027:null,\\\u0027LanguageId\\\u0027:1,\\\u0027CompletionStatus\\\u0027:11070,\\\u0027CommentTitle\\\u0027:\\\u0027\\\u0027,\\\u0027CommentContent\\\u0027:\\\u0027\\\u0027,\\\u0027GraduatedFrom\\\u0027:\\\u0027四川大学\\\u0027,\\\u0027CurrentMajorName\\\u0027:\\\u0027社会体育\\\u0027,\\\u0027CurrentCompanyName\\\u0027:\\\u0027\\\u0027,\\\u0027CurrentJobTitle\\\u0027:\\\u0027\\\u0027,\\\u0027Name\\\u0027:\\\u0027resumeS.css\\\u0027,\\\u0027Address1\\\u0027:\\\u0027\\\u0027,\\\u0027Address2\\\u0027:\\\u0027\\\u0027,\\\u0027AdditionalContactInfo\\\u0027:\\\u0027\\\u0027,\\\u0027UserMasterExtId\\\u0027:\\\u0027JM408327710\\\u0027,\\\u0027ShowPersonInfo\\\u0027:\\\u0027y\\\u0027,\\\u0027ShowResumeAttend\\\u0027:\\\u0027y\\\u0027,\\\u0027ExclusiveCompany\\\u0027:\\\u0027\\\u0027,\\\u0027OverdeaWorkExperience\\\u0027:\\\u00270\\\u0027,\\\u0027PoliticsBackGround\\\u0027:\\\u0027\\\u0027,\\\u0027UploadPasteResumeType\\\u0027:\\\u0027\\\u0027,\\\u0027UploadPasteResumeSubType\\\u0027:\\\u0027\\\u0027,\\\u0027SelfEvaluate\\\u0027:[],\\\u0027UserMasterName\\\u0027:\\\u0027cd\\\u0027,\\\u0027Gender\\\u0027:\\\u00272\\\u0027,\\\u0027MaritalStatus\\\u0027:\\\u0027\\\u0027,\\\u0027CountryId\\\u0027:\\\u0027\\\u0027,\\\u0027ProvinceId\\\u0027:\\\u0027540\\\u0027,\\\u0027CityId\\\u0027:\\\u0027540\\\u0027,\\\u0027CityName\\\u0027:\\\u0027\\\u0027,\\\u0027NationalityId\\\u0027:\\\u0027489\\\u0027,\\\u0027HuKouProvinceId\\\u0027:\\\u0027543\\\u0027,\\\u0027HuKouCityId\\\u0027:\\\u0027698\\\u0027,\\\u0027HuKouCityName\\\u0027:\\\u0027\\\u0027,\\\u0027BirthYear\\\u0027:\\\u00271988\\\u0027,\\\u0027PostalCode\\\u0027:\\\u0027\\\u0027,\\\u0027MaxEducationLevel\\\u0027:\\\u00273\\\u0027,\\\u0027ComPletionDegree\\\u0027:[{\\\u0027CompletionStatus\\\u0027:\\\u00271\\\u0027,\\\u0027ItemsCompletion\\\u0027:\\\u00271|2|1|2|1|2|2|2|2|2|2|2|2|2|2\\\u0027,\\\u0027ItemsScore\\\u0027:\\\u002720|0|14|14|0|0|0|0|0|0|0|0|0|22|0\\\u0027,\\\u0027LanguageId\\\u0027:\\\u00271\\\u0027,\\\u0027SubRowId\\\u0027:\\\u00271\\\u0027,\\\u0027TotasScore\\\u0027:\\\u002770\\\u0027},{\\\u0027CompletionStatus\\\u0027:\\\u00270\\\u0027,\\\u0027ItemsCompletion\\\u0027:\\\u00270\\\u0027,\\\u0027ItemsScore\\\u0027:\\\u0027\\\u0027,\\\u0027LanguageId\\\u0027:\\\u00272\\\u0027,\\\u0027SubRowId\\\u0027:\\\u00272\\\u0027,\\\u0027TotasScore\\\u0027:\\\u00270\\\u0027}],\\\u0027DesiredPosition\\\u0027:[{\\\u0027CurrentCareerStatus\\\u0027:\\\u00271\\\u0027,\\\u0027DesiredCity\\\u0027:\\\u0027557\\\u0027,\\\u0027DesiredEmploymentType\\\u0027:\\\u00272\\\u0027,\\\u0027DesiredIndustry\\\u0027:\\\u0027140200\\\u0027,\\\u0027DesiredJobType\\\u0027:\\\u0027201300\\\u0027,\\\u0027DesiredSalaryScope\\\u0027:\\\u00270100002000\\\u0027,\\\u0027SubRowId\\\u0027:\\\u00271\\\u0027}],\\\u0027WorkExperience\\\u0027:[],\\\u0027EducationExperience\\\u0027:[{\\\u0027DateEnd\\\u0027:\\\u00272005-5-01\\\u0027,\\\u0027DateStart\\\u0027:\\\u00272002-2-01\\\u0027,\\\u0027EducationLevel\\\u0027:\\\u00273\\\u0027,\\\u0027IsSeriesIncurs\\\u0027:1,\\\u0027MajorBigType\\\u0027:\\\u002771\\\u0027,\\\u0027MajorName\\\u0027:\\\u0027社会体育\\\u0027,\\\u0027MajorSmallType\\\u0027:\\\u0027514\\\u0027,\\\u0027SchoolName\\\u0027:\\\u0027四川大学\\\u0027,\\\u0027SubRowId\\\u0027:\\\u00271\\\u0027}],\\\u0027LanguageSkill\\\u0027:[],\\\u0027Training\\\u0027:[],\\\u0027AdvancedManagement\\\u0027:[],\\\u0027ProjectExperience\\\u0027:[],\\\u0027ProfessionnalSkill\\\u0027:[],\\\u0027PracticeExperience\\\u0027:[],\\\u0027PasteResumeText\\\u0027:[],\\\u0027UploadResumeFile\\\u0027:[],\\\u0027AchieveCertificate\\\u0027:[],\\\u0027AssistantAccessory\\\u0027:[],\\\u0027AchieveScholarship\\\u0027:[],\\\u0027AchieveAward\\\u0027:[],\\\u0027StudyInformation\\\u0027:[],\\\u0027Other\\\u0027:[],\\\u0027ReferalPersonId\\\u0027:null,\\\u0027EliteStatus\\\u0027:1}\u0027,\u0027hasread\u0027:null,\u0027jobEndTime\u0027:0,\u0027jobId\u0027:0,\u0027jobName\u0027:null,\u0027jobNo\u0027:null,\u0027jobStatus\u0027:0,\u0027mark\u0027:null,\u0027resumeGrade\u0027:0,\u0027resumeId\u0027:null,\u0027resumeJobId\u0027:null,\u0027resumeLanguage\u0027:null,\u0027resumeNo\u0027:\u0027\u0027,\u0027resumeSource\u0027:null,\u0027resumeStatus\u0027:null,\u0027resumeVersion\u0027:null,\u0027resumerId\u0027:null,\u0027resumerName\u0027:null,\u0027testTag\u0027:null,\u0027userDetials\u0027:{\u0027birthDay\u0027:\u0027\u0027,\u0027birthMonth\u0027:\u00273\u0027,\u0027birthStr\u0027:\u00271988年3月\u0027,\u0027birthYear\u0027:\u002729\u0027,\u0027cityDistrictId\u0027:\u00270\u0027,\u0027cityId\u0027:\u0027540\u0027,\u0027countryId\u0027:null,\u0027dateLastLogin\u0027:\u0027/Date(1459475769483+0800)/\u0027,\u0027email\u0027:\u0027\u0027,\u0027gender\u0027:\u00272\u0027,\u0027hOUKOUProvinceId\u0027:\u0027543\u0027,\u0027hUKOUCityId\u0027:\u0027698\u0027,\u0027maritalStatus\u0027:\u00275\u0027,\u0027mobilePhone\u0027:\u0027\u0027,\u0027nationalityId\u0027:\u0027489\u0027,\u0027photo\u0027:\u0027\u0027,\u0027politicsBackground\u0027:\u0027\u0027,\u0027provinceStateId\u0027:\u0027540\u0027,\u0027status\u0027:\u00271\u0027,\u0027userMasterId\u0027:\u0027640832771\u0027,\u0027userName\u0027:\u0027cd\u0027,\u0027workYearsRangeId\u0027:\u002712年\u0027}},\u0027message\u0027:\u0027简历信息查询成功\u0027,\u0027success\u0027:true\""
+          }
+        ],
+        "line": 55,
+        "name": "职位下线",
+        "description": "",
+        "id": "发布/修改职位/简历分享/详情;职位下线",
+        "after": [
+          {
+            "result": {
+              "duration": 11501,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Step.afterScenario(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 150489,
+              "status": "passed"
+            },
+            "line": 56,
+            "name": "设置cookie",
+            "match": {
+              "location": "Step.setcookie()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1127720899,
+              "status": "passed"
+            },
+            "line": 57,
+            "name": "调用POST接口,url:\"{url}/ihrapi/job/jobdownline?access_token\u003d{access_token}\",param:\"jobNumber\u003d{jobNumber}\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{url}/ihrapi/job/jobdownline?access_token\u003d{access_token}",
+                  "offset": 14
+                },
+                {
+                  "val": "jobNumber\u003d{jobNumber}",
+                  "offset": 79
+                }
+              ],
+              "location": "Step.send_post(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 119877,
+              "status": "passed"
+            },
+            "line": 58,
+            "name": "json结果中包含\"\u0027code\u0027:200,\u0027message\u0027:\u0027职位下线成功\u0027,\u0027success\u0027:true\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\u0027code\u0027:200,\u0027message\u0027:\u0027职位下线成功\u0027,\u0027success\u0027:true",
+                  "offset": 10
+                }
+              ],
+              "location": "Step.isHaveString(String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 99915,
+              "status": "passed"
+            },
+            "line": 60,
+            "name": "步骤:职位删除",
+            "match": {
+              "arguments": [
+                {
+                  "val": "职位删除",
+                  "offset": 3
+                }
+              ],
+              "location": "Step.setstep(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 108294,
+              "status": "passed"
+            },
+            "line": 61,
+            "name": "设置cookie",
+            "match": {
+              "location": "Step.setcookie()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 940543802,
+              "status": "passed"
+            },
+            "line": 62,
+            "name": "调用POST接口,url:\"{url}/ihrapi/job/jobdelete?access_token\u003d{access_token}\",param:\"jobNumber\u003d{jobNumber}\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{url}/ihrapi/job/jobdelete?access_token\u003d{access_token}",
+                  "offset": 14
+                },
+                {
+                  "val": "jobNumber\u003d{jobNumber}",
+                  "offset": 77
+                }
+              ],
+              "location": "Step.send_post(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 128380,
+              "status": "passed"
+            },
+            "line": 63,
+            "name": "json结果中包含\"\u0027code\u0027:200,\u0027message\u0027:\u0027职位删除成功\u0027,\u0027success\u0027:true\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\u0027code\u0027:200,\u0027message\u0027:\u0027职位删除成功\u0027,\u0027success\u0027:true",
+                  "offset": 10
+                }
+              ],
+              "location": "Step.isHaveString(String)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 66,
+        "name": "添加职位模板",
+        "description": "",
+        "id": "发布/修改职位/简历分享/详情;添加职位模板",
+        "after": [
+          {
+            "result": {
+              "duration": 19583,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Step.afterScenario(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 122513,
+              "status": "passed"
+            },
+            "line": 67,
+            "name": "设置cookie",
+            "match": {
+              "location": "Step.setcookie()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 51463,
+              "status": "passed"
+            },
+            "line": 68,
+            "name": "设置fromsystem为\"23\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "23",
+                  "offset": 14
+                }
+              ],
+              "location": "Step.setfromsystem(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 27305,
+              "status": "passed"
+            },
+            "line": 69,
+            "name": "设置deviceid为\"qwertyu\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "qwertyu",
+                  "offset": 12
+                }
+              ],
+              "location": "Step.setdeviceid(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 36775,
+              "status": "passed"
+            },
+            "line": 70,
+            "name": "保存一个变量key\u003d\"{path}\",value\u003d\"/appapi/jobtemplate/jobtemplateadd\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{path}",
+                  "offset": 11
+                },
+                {
+                  "val": "/appapi/jobtemplate/jobtemplateadd",
+                  "offset": 26
+                }
+              ],
+              "location": "Step.saveBl(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 217795003,
+              "status": "passed"
+            },
+            "line": 72,
+            "name": "调用POST_Json接口,testContent:\"添加职位模板\",url:\"{url}{path}?access_token\u003d{access_token}\",param:\"{\u0027jobtitle\u0027:\u0027{jobmoduletitle}\u0027,\u0027jobTypeMain\u0027:\u0027160400\u0027,\u0027subJobTypeMain\u0027:\u0027693\u0027,\u0027monthsalary\u0027:\u00270000001000\u0027,\u0027positionnature\u0027:2,\u0027workplace\u0027:\u0027哈尔滨\u0027,\u0027provinceid\u0027:560,\u0027cityid\u0027:10061,\u0027cqid\u0027:\u0027\u0027,\u0027quantity\u0027:2,\u0027mineducationlevel\u0027:\u00271\u0027,\u0027minyears\u0027:\u00271099\u0027,\u0027jobdescription\u0027:\u0027这是职位描述\u0027,\u0027benefit\u0027:\u002710000,10001\u0027,\u0027enddate\u0027:30}\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "添加职位模板",
+                  "offset": 27
+                },
+                {
+                  "val": "{url}{path}?access_token\u003d{access_token}",
+                  "offset": 40
+                },
+                {
+                  "val": "{\u0027jobtitle\u0027:\u0027{jobmoduletitle}\u0027,\u0027jobTypeMain\u0027:\u0027160400\u0027,\u0027subJobTypeMain\u0027:\u0027693\u0027,\u0027monthsalary\u0027:\u00270000001000\u0027,\u0027positionnature\u0027:2,\u0027workplace\u0027:\u0027哈尔滨\u0027,\u0027provinceid\u0027:560,\u0027cityid\u0027:10061,\u0027cqid\u0027:\u0027\u0027,\u0027quantity\u0027:2,\u0027mineducationlevel\u0027:\u00271\u0027,\u0027minyears\u0027:\u00271099\u0027,\u0027jobdescription\u0027:\u0027这是职位描述\u0027,\u0027benefit\u0027:\u002710000,10001\u0027,\u0027enddate\u0027:30}",
+                  "offset": 88
+                }
+              ],
+              "location": "Step.send_json_post(String,String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 16765589,
+              "status": "passed"
+            },
+            "line": 73,
+            "name": "json结果中包含\"\u0027code\u0027:200,\u0027message\u0027:null,\u0027success\u0027:true\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\u0027code\u0027:200,\u0027message\u0027:null,\u0027success\u0027:true",
+                  "offset": 10
+                }
+              ],
+              "location": "Step.isHaveString(String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 2540251,
+              "status": "passed"
+            },
+            "line": 74,
+            "name": "把\"data\"以\"{data}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "data",
+                  "offset": 2
+                },
+                {
+                  "val": "{data}",
+                  "offset": 9
+                }
+              ],
+              "location": "Step.save(String,String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 171867,
+              "status": "passed"
+            },
+            "line": 76,
+            "name": "步骤: 获取职位模板详情",
+            "match": {
+              "arguments": [
+                {
+                  "val": " 获取职位模板详情",
+                  "offset": 3
+                }
+              ],
+              "location": "Step.setstep(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 287530,
+              "status": "passed"
+            },
+            "line": 77,
+            "name": "设置cookie",
+            "match": {
+              "location": "Step.setcookie()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 127441,
+              "status": "passed"
+            },
+            "line": 78,
+            "name": "设置fromsystem为\"23\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "23",
+                  "offset": 14
+                }
+              ],
+              "location": "Step.setfromsystem(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 172000,
+              "status": "passed"
+            },
+            "line": 79,
+            "name": "设置deviceid为\"qwertyu\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "qwertyu",
+                  "offset": 12
+                }
+              ],
+              "location": "Step.setdeviceid(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 142123,
+              "status": "passed"
+            },
+            "line": 80,
+            "name": "保存一个变量key\u003d\"{path}\",value\u003d\"/appapi/jobtemplate/jobtemplatedetail\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{path}",
+                  "offset": 11
+                },
+                {
+                  "val": "/appapi/jobtemplate/jobtemplatedetail",
+                  "offset": 26
+                }
+              ],
+              "location": "Step.saveBl(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 106657913,
+              "status": "passed"
+            },
+            "line": 81,
+            "name": "调用GET接口,url:\"{url}{path}?access_token\u003d{access_token}\u0026id\u003d{data}\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{url}{path}?access_token\u003d{access_token}\u0026id\u003d{data}",
+                  "offset": 13
+                }
+              ],
+              "location": "Step.send_get(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 145968,
+              "status": "passed"
+            },
+            "line": 82,
+            "name": "json结果中包含\"\u0027code\u0027:200,\u0027message\u0027:\u0027success\u0027,\u0027data\u0027:{\u0027jobTitle\u0027:\u0027{jobmoduletitle}\u0027,\u0027jobType\u0027:693,\u0027jobAture\u0027:2,\u0027maxSalary\u0027:1000,\u0027minSalary\u0027:0,\u0027salaryName\u0027:\u00270000001000\u0027,\u0027city\u0027:10061,\u0027cqId\u0027:0,\u0027jobAddress\u0027:\u0027哈尔滨\u0027,\u0027quantity\u0027:2,\u0027minEducation\u0027:1,\u0027minYear\u0027:1099,\u0027jobtime\u0027:30,\u0027jobDescription\u0027:\u0027这是职位描述\u0027,\u0027benefit\u0027:\u002710000,10001\u0027},\u0027success\u0027:true\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\u0027code\u0027:200,\u0027message\u0027:\u0027success\u0027,\u0027data\u0027:{\u0027jobTitle\u0027:\u0027{jobmoduletitle}\u0027,\u0027jobType\u0027:693,\u0027jobAture\u0027:2,\u0027maxSalary\u0027:1000,\u0027minSalary\u0027:0,\u0027salaryName\u0027:\u00270000001000\u0027,\u0027city\u0027:10061,\u0027cqId\u0027:0,\u0027jobAddress\u0027:\u0027哈尔滨\u0027,\u0027quantity\u0027:2,\u0027minEducation\u0027:1,\u0027minYear\u0027:1099,\u0027jobtime\u0027:30,\u0027jobDescription\u0027:\u0027这是职位描述\u0027,\u0027benefit\u0027:\u002710000,10001\u0027},\u0027success\u0027:true",
+                  "offset": 10
+                }
+              ],
+              "location": "Step.isHaveString(String)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 84,
+        "name": "获取热门职位模板",
+        "description": "",
+        "id": "发布/修改职位/简历分享/详情;获取热门职位模板",
+        "after": [
+          {
+            "result": {
+              "duration": 16511,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Step.afterScenario(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 133342,
+              "status": "passed"
+            },
+            "line": 85,
+            "name": "设置cookie",
+            "match": {
+              "location": "Step.setcookie()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 44579,
+              "status": "passed"
+            },
+            "line": 86,
+            "name": "设置fromsystem为\"23\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "23",
+                  "offset": 14
+                }
+              ],
+              "location": "Step.setfromsystem(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 58724,
+              "status": "passed"
+            },
+            "line": 87,
+            "name": "设置deviceid为\"qwertyu\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "qwertyu",
+                  "offset": 12
+                }
+              ],
+              "location": "Step.setdeviceid(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 40228,
+              "status": "passed"
+            },
+            "line": 88,
+            "name": "保存一个变量key\u003d\"{path}\",value\u003d\"/appapi/jobtemplate/hotjobtemplates\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{path}",
+                  "offset": 11
+                },
+                {
+                  "val": "/appapi/jobtemplate/hotjobtemplates",
+                  "offset": 26
+                }
+              ],
+              "location": "Step.saveBl(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 117444547,
+              "status": "passed"
+            },
+            "line": 89,
+            "name": "调用GET接口,url:\"{url}{path}?access_token\u003d{access_token}\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{url}{path}?access_token\u003d{access_token}",
+                  "offset": 13
+                }
+              ],
+              "location": "Step.send_get(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 281892,
+              "status": "passed"
+            },
+            "line": 90,
+            "name": "json结果中包含\"\u0027code\u0027:200,\u0027message\u0027:null,\u0027data\u0027:[{\u0027id\u0027:30,\u0027templateName\u0027:\u0027java工程师0\u0027,\u0027templateTypeName\u0027:\u0027type1\u0027},{\u0027id\u0027:31,\u0027templateName\u0027:\u0027java工程师1\u0027,\u0027templateTypeName\u0027:\u0027type1\u0027},{\u0027id\u0027:32,\u0027templateName\u0027:\u0027java工程师2\u0027,\u0027templateTypeName\u0027:\u0027type1\u0027},{\u0027id\u0027:33,\u0027templateName\u0027:\u0027java工程师3\u0027,\u0027templateTypeName\u0027:\u0027type1\u0027},{\u0027id\u0027:34,\u0027templateName\u0027:\u0027java工程师4\u0027,\u0027templateTypeName\u0027:\u0027type1\u0027},{\u0027id\u0027:35,\u0027templateName\u0027:\u0027java工程师5\u0027,\u0027templateTypeName\u0027:\u0027type1\u0027},{\u0027id\u0027:59,\u0027templateName\u0027:\u0027证券/期货/外汇经纪人\u0027,\u0027templateTypeName\u0027:\u0027证券/期货/外汇经纪人\u0027},{\u0027id\u0027:68,\u0027templateName\u0027:\u0027医药代表\u0027,\u0027templateTypeName\u0027:\u0027医药代表\u0027},{\u0027id\u0027:65,\u0027templateName\u0027:\u0027销售经理\u0027,\u0027templateTypeName\u0027:\u0027销售经理\u0027},{\u0027id\u0027:66,\u0027templateName\u0027:\u0027培训/招生/课程顾问\u0027,\u0027templateTypeName\u0027:\u0027培训/招生/课程顾问\u0027},{\u0027id\u0027:67,\u0027templateName\u0027:\u0027Java开发工程师\u0027,\u0027templateTypeName\u0027:\u0027Java开发工程师\u0027},{\u0027id\u0027:60,\u0027templateName\u0027:\u0027销售代表\u0027,\u0027templateTypeName\u0027:\u0027销售代表\u0027},{\u0027id\u0027:61,\u0027templateName\u0027:\u0027软件工程师\u0027,\u0027templateTypeName\u0027:\u0027软件工程师\u0027},{\u0027id\u0027:62,\u0027templateName\u0027:\u0027证券分析/金融研究\u0027,\u0027templateTypeName\u0027:\u0027证券分析/金融研究\u0027},{\u0027id\u0027:63,\u0027templateName\u0027:\u0027股票/期货操盘手\u0027,\u0027templateTypeName\u0027:\u0027股票/期货操盘手\u0027},{\u0027id\u0027:64,\u0027templateName\u0027:\u0027演员/模特\u0027,\u0027templateTypeName\u0027:\u0027演员/模特\u0027}],\u0027success\u0027:true\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\u0027code\u0027:200,\u0027message\u0027:null,\u0027data\u0027:[{\u0027id\u0027:30,\u0027templateName\u0027:\u0027java工程师0\u0027,\u0027templateTypeName\u0027:\u0027type1\u0027},{\u0027id\u0027:31,\u0027templateName\u0027:\u0027java工程师1\u0027,\u0027templateTypeName\u0027:\u0027type1\u0027},{\u0027id\u0027:32,\u0027templateName\u0027:\u0027java工程师2\u0027,\u0027templateTypeName\u0027:\u0027type1\u0027},{\u0027id\u0027:33,\u0027templateName\u0027:\u0027java工程师3\u0027,\u0027templateTypeName\u0027:\u0027type1\u0027},{\u0027id\u0027:34,\u0027templateName\u0027:\u0027java工程师4\u0027,\u0027templateTypeName\u0027:\u0027type1\u0027},{\u0027id\u0027:35,\u0027templateName\u0027:\u0027java工程师5\u0027,\u0027templateTypeName\u0027:\u0027type1\u0027},{\u0027id\u0027:59,\u0027templateName\u0027:\u0027证券/期货/外汇经纪人\u0027,\u0027templateTypeName\u0027:\u0027证券/期货/外汇经纪人\u0027},{\u0027id\u0027:68,\u0027templateName\u0027:\u0027医药代表\u0027,\u0027templateTypeName\u0027:\u0027医药代表\u0027},{\u0027id\u0027:65,\u0027templateName\u0027:\u0027销售经理\u0027,\u0027templateTypeName\u0027:\u0027销售经理\u0027},{\u0027id\u0027:66,\u0027templateName\u0027:\u0027培训/招生/课程顾问\u0027,\u0027templateTypeName\u0027:\u0027培训/招生/课程顾问\u0027},{\u0027id\u0027:67,\u0027templateName\u0027:\u0027Java开发工程师\u0027,\u0027templateTypeName\u0027:\u0027Java开发工程师\u0027},{\u0027id\u0027:60,\u0027templateName\u0027:\u0027销售代表\u0027,\u0027templateTypeName\u0027:\u0027销售代表\u0027},{\u0027id\u0027:61,\u0027templateName\u0027:\u0027软件工程师\u0027,\u0027templateTypeName\u0027:\u0027软件工程师\u0027},{\u0027id\u0027:62,\u0027templateName\u0027:\u0027证券分析/金融研究\u0027,\u0027templateTypeName\u0027:\u0027证券分析/金融研究\u0027},{\u0027id\u0027:63,\u0027templateName\u0027:\u0027股票/期货操盘手\u0027,\u0027templateTypeName\u0027:\u0027股票/期货操盘手\u0027},{\u0027id\u0027:64,\u0027templateName\u0027:\u0027演员/模特\u0027,\u0027templateTypeName\u0027:\u0027演员/模特\u0027}],\u0027success\u0027:true",
+                  "offset": 10
+                }
+              ],
+              "location": "Step.isHaveString(String)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 92,
+        "name": "搜索职位模板",
+        "description": "",
+        "id": "发布/修改职位/简历分享/详情;搜索职位模板",
+        "after": [
+          {
+            "result": {
+              "duration": 29322,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Step.afterScenario(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 110345,
+              "status": "passed"
+            },
+            "line": 93,
+            "name": "设置cookie",
+            "match": {
+              "location": "Step.setcookie()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 36250,
+              "status": "passed"
+            },
+            "line": 94,
+            "name": "设置fromsystem为\"23\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "23",
+                  "offset": 14
+                }
+              ],
+              "location": "Step.setfromsystem(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 29701,
+              "status": "passed"
+            },
+            "line": 95,
+            "name": "设置deviceid为\"qwertyu\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "qwertyu",
+                  "offset": 12
+                }
+              ],
+              "location": "Step.setdeviceid(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 41162,
+              "status": "passed"
+            },
+            "line": 96,
+            "name": "保存一个变量key\u003d\"{path}\",value\u003d\"/appapi/jobtemplate/jobtemplates\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{path}",
+                  "offset": 11
+                },
+                {
+                  "val": "/appapi/jobtemplate/jobtemplates",
+                  "offset": 26
+                }
+              ],
+              "location": "Step.saveBl(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 118093448,
+              "status": "passed"
+            },
+            "line": 97,
+            "name": "调用GET接口,url:\"{url}{path}?access_token\u003d{access_token}\u0026keyword\u003d{jobmoduletitle}\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{url}{path}?access_token\u003d{access_token}\u0026keyword\u003d{jobmoduletitle}",
+                  "offset": 13
+                }
+              ],
+              "location": "Step.send_get(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 255696,
+              "status": "passed"
+            },
+            "line": 98,
+            "name": "json结果中包含\"\u0027code\u0027:200,\u0027message\u0027:null,\u0027data\u0027:[{\u0027id\u0027:122,\u0027templateName\u0027:\u0027jobmodule123\u0027,\u0027templateTypeName\u0027:\u0027仓库/物料管理员\u0027},]\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\u0027code\u0027:200,\u0027message\u0027:null,\u0027data\u0027:[{\u0027id\u0027:122,\u0027templateName\u0027:\u0027jobmodule123\u0027,\u0027templateTypeName\u0027:\u0027仓库/物料管理员\u0027},]",
+                  "offset": 10
+                }
+              ],
+              "location": "Step.isHaveString(String)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "发布/修改职位/简历分享/详情",
+    "description": "",
+    "id": "发布/修改职位/简历分享/详情",
+    "keyword": "Feature",
+    "uri": "qa_mobile_job_smoke.feature",
+    "tags": [
+      {
+        "line": 1,
+        "name": "@qa_mobile_job_smoke"
+      }
+    ]
+  },
+  {
+    "line": 2,
+    "elements": [
+      {
+        "line": 3,
+        "name": "init",
+        "description": "",
+        "id": "获取图片验证码;init",
+        "after": [
+          {
+            "result": {
+              "duration": 10659,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Step.afterScenario(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 85151,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "保存一个变量key\u003d\"{url}\",value\u003d\"http://api-qa.zhaopin.com\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{url}",
+                  "offset": 11
+                },
+                {
+                  "val": "http://api-qa.zhaopin.com",
+                  "offset": 25
+                }
+              ],
+              "location": "Step.saveBl(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 368589,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "保存一个变量key\u003d\"{path}\",value\u003d\"/passport/checkcode\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{path}",
+                  "offset": 11
+                },
+                {
+                  "val": "/passport/checkcode",
+                  "offset": 26
+                }
+              ],
+              "location": "Step.saveBl(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 31578,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "设置fromsystem为\"23\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "23",
+                  "offset": 14
+                }
+              ],
+              "location": "Step.setfromsystem(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 29749,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "设置deviceid为\"qwertyu\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "qwertyu",
+                  "offset": 12
+                }
+              ],
+              "location": "Step.setdeviceid(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 303049,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "生产一个当前时间戳,以\"{r}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{r}",
+                  "offset": 12
+                }
+              ],
+              "location": "Step.randMilltime(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 83199,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "生成一个md5key,以\"{md5key}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{md5key}",
+                  "offset": 13
+                }
+              ],
+              "location": "Step.randMd5key(String)"
+            },
+            "keyword": "When "
+          }
+        ]
+      },
+      {
+        "line": 10,
+        "name": "获取图片验证码",
+        "description": "",
+        "id": "获取图片验证码;获取图片验证码",
+        "after": [
+          {
+            "result": {
+              "duration": 17106,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Step.afterScenario(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 98092486,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "调用GET接口forcheckId,testContent:\"获取图片验证码\",url:\"{url}{path}?r\u003d{r}\u0026key\u003d{md5key}\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "获取图片验证码",
+                  "offset": 31
+                },
+                {
+                  "val": "{url}{path}?r\u003d{r}\u0026key\u003d{md5key}",
+                  "offset": 45
+                }
+              ],
+              "location": "Step.send_get_checkId(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 116887,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "json结果中包含\"\u0027checkId\u0027\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\u0027checkId\u0027",
+                  "offset": 10
+                }
+              ],
+              "location": "Step.isHaveString(String)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "获取图片验证码",
+    "description": "",
+    "id": "获取图片验证码",
+    "keyword": "Feature",
+    "uri": "qa_mobile_passport_checkcode_smoke.feature",
+    "tags": [
+      {
+        "line": 1,
+        "name": "@qa_mobile_passport_checkcode_smoke"
+      }
+    ]
+  },
+  {
+    "line": 2,
+    "elements": [
+      {
+        "line": 4,
+        "name": "init",
+        "description": "",
+        "id": "情景：ihr平台/rd平台/c端用户登录;init",
+        "after": [
+          {
+            "result": {
+              "duration": 19254,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Step.afterScenario(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 149055,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "保存一个变量key\u003d\"{url}\",value\u003d\"http://api-qa.zhaopin.com\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{url}",
+                  "offset": 11
+                },
+                {
+                  "val": "http://api-qa.zhaopin.com",
+                  "offset": 25
+                }
+              ],
+              "location": "Step.saveBl(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 41137,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "保存一个变量key\u003d\"{path}\",value\u003d\"/passport/login\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{path}",
+                  "offset": 11
+                },
+                {
+                  "val": "/passport/login",
+                  "offset": 26
+                }
+              ],
+              "location": "Step.saveBl(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 44313,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "保存一个变量key\u003d\"{ihr}\",value\u003d\"pctest011\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{ihr}",
+                  "offset": 11
+                },
+                {
+                  "val": "pctest011",
+                  "offset": 25
+                }
+              ],
+              "location": "Step.saveBl(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 44427,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "保存一个变量key\u003d\"{rd}\",value\u003d\"testdep\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{rd}",
+                  "offset": 11
+                },
+                {
+                  "val": "testdep",
+                  "offset": 24
+                }
+              ],
+              "location": "Step.saveBl(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 58522,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "保存一个变量key\u003d\"{c_client}\",value\u003d\"lianxl201@163.com\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{c_client}",
+                  "offset": 11
+                },
+                {
+                  "val": "lianxl201@163.com",
+                  "offset": 30
+                }
+              ],
+              "location": "Step.saveBl(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 35090,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "设置fromsystem为\"23\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "23",
+                  "offset": 14
+                }
+              ],
+              "location": "Step.setfromsystem(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 33005,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "设置deviceid为\"qwertyu\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "qwertyu",
+                  "offset": 12
+                }
+              ],
+              "location": "Step.setdeviceid(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 473173,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "生产一个当前时间戳,以\"{r}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{r}",
+                  "offset": 12
+                }
+              ],
+              "location": "Step.randMilltime(String)"
+            },
+            "keyword": "When "
+          }
+        ]
+      },
+      {
+        "line": 14,
+        "name": "ihr用户",
+        "description": "",
+        "id": "情景：ihr平台/rd平台/c端用户登录;ihr用户",
+        "after": [
+          {
+            "result": {
+              "duration": 12374,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Step.afterScenario(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 60004898587,
+              "status": "passed"
+            },
+            "line": 15,
+            "name": "等待1\"分钟\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "1",
+                  "offset": 2
+                },
+                {
+                  "val": "分钟",
+                  "offset": 4
+                }
+              ],
+              "location": "Step.wait(int,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 151491,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "生成一个md5key,以\"{md5key}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{md5key}",
+                  "offset": 13
+                }
+              ],
+              "location": "Step.randMd5key(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 220863443,
+              "status": "passed"
+            },
+            "line": 17,
+            "name": "调用POST_Json接口,testContent:\"登录\",url:\"{url}{path}?r\u003d{r}\u0026key\u003d{md5key}\",param:\"{\u0027loginName\u0027:\u0027{ihr}\u0027,\u0027pwd\u0027:\u0027test123456\u0027,\u0027checkId\u0027:\u0027\u0027,\u0027checkCode\u0027:\u0027\u0027}\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "登录",
+                  "offset": 27
+                },
+                {
+                  "val": "{url}{path}?r\u003d{r}\u0026key\u003d{md5key}",
+                  "offset": 36
+                },
+                {
+                  "val": "{\u0027loginName\u0027:\u0027{ihr}\u0027,\u0027pwd\u0027:\u0027test123456\u0027,\u0027checkId\u0027:\u0027\u0027,\u0027checkCode\u0027:\u0027\u0027}",
+                  "offset": 75
+                }
+              ],
+              "location": "Step.send_json_post(String,String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 21096597,
+              "status": "passed"
+            },
+            "line": 18,
+            "name": "json结果中包含\"\u0027code\u0027:200,\u0027message\u0027:null,\u0027success\u0027:true,\u0027needCheckcode\u0027:false,\u0027companyRegistered\u0027:true,\u0027userStatus\u0027:20,\u0027userType\u0027:153\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\u0027code\u0027:200,\u0027message\u0027:null,\u0027success\u0027:true,\u0027needCheckcode\u0027:false,\u0027companyRegistered\u0027:true,\u0027userStatus\u0027:20,\u0027userType\u0027:153",
+                  "offset": 10
+                }
+              ],
+              "location": "Step.isHaveString(String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 3941449,
+              "status": "passed"
+            },
+            "line": 19,
+            "name": "把\"data,accessToken\"以\"{access_token}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "data,accessToken",
+                  "offset": 2
+                },
+                {
+                  "val": "{access_token}",
+                  "offset": 21
+                }
+              ],
+              "location": "Step.save(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 2198807,
+              "status": "passed"
+            },
+            "line": 20,
+            "name": "把\"data,refreshToken\"以\"{refresh_Token}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "data,refreshToken",
+                  "offset": 2
+                },
+                {
+                  "val": "{refresh_Token}",
+                  "offset": 22
+                }
+              ],
+              "location": "Step.save(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 188904,
+              "status": "passed"
+            },
+            "comments": [
+              {
+                "line": 22,
+                "value": "#验证登录_by_token"
+              }
+            ],
+            "line": 23,
+            "name": "设置at为\"{access_token}\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{access_token}",
+                  "offset": 6
+                }
+              ],
+              "location": "Step.setAt(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 107159,
+              "status": "passed"
+            },
+            "line": 24,
+            "name": "设置rt为\"{refresh_Token}\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{refresh_Token}",
+                  "offset": 6
+                }
+              ],
+              "location": "Step.setRt(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 72613,
+              "status": "passed"
+            },
+            "line": 25,
+            "name": "保存一个变量key\u003d\"{path}\",value\u003d\"/passport/tokeninfo\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{path}",
+                  "offset": 11
+                },
+                {
+                  "val": "/passport/tokeninfo",
+                  "offset": 26
+                }
+              ],
+              "location": "Step.saveBl(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 129967,
+              "status": "passed"
+            },
+            "line": 26,
+            "name": "生成一个md5key,以\"{md5key}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{md5key}",
+                  "offset": 13
+                }
+              ],
+              "location": "Step.randMd5key(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 131655467,
+              "status": "passed"
+            },
+            "line": 27,
+            "name": "调用GET接口,testContent:\"验证登录_by_token\",url:\"{url}{path}?r\u003d{r}\u0026key\u003d{md5key}\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "验证登录_by_token",
+                  "offset": 21
+                },
+                {
+                  "val": "{url}{path}?r\u003d{r}\u0026key\u003d{md5key}",
+                  "offset": 41
+                }
+              ],
+              "location": "Step.send_get(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 99809,
+              "status": "passed"
+            },
+            "line": 28,
+            "name": "json结果中包含\"\u0027code\u0027:200,\u0027message\u0027:null,\u0027success\u0027:true,\u0027needCheckcode\u0027:false,\u0027companyRegistered\u0027:true,\u0027userStatus\u0027:20,\u0027userType\u0027:153\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\u0027code\u0027:200,\u0027message\u0027:null,\u0027success\u0027:true,\u0027needCheckcode\u0027:false,\u0027companyRegistered\u0027:true,\u0027userStatus\u0027:20,\u0027userType\u0027:153",
+                  "offset": 10
+                }
+              ],
+              "location": "Step.isHaveString(String)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 30,
+        "name": "rd用户",
+        "description": "",
+        "id": "情景：ihr平台/rd平台/c端用户登录;rd用户",
+        "after": [
+          {
+            "result": {
+              "duration": 194174,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Step.afterScenario(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1018552,
+              "status": "passed"
+            },
+            "comments": [
+              {
+                "line": 31,
+                "value": "#\t\tWhen 等待1\"分钟\""
+              }
+            ],
+            "line": 32,
+            "name": "生产一个当前时间戳,以\"{r}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{r}",
+                  "offset": 12
+                }
+              ],
+              "location": "Step.randMilltime(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 62341,
+              "status": "passed"
+            },
+            "line": 33,
+            "name": "保存一个变量key\u003d\"{path}\",value\u003d\"/passport/login\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{path}",
+                  "offset": 11
+                },
+                {
+                  "val": "/passport/login",
+                  "offset": 26
+                }
+              ],
+              "location": "Step.saveBl(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 97423,
+              "status": "passed"
+            },
+            "line": 34,
+            "name": "生成一个md5key,以\"{md5key}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{md5key}",
+                  "offset": 13
+                }
+              ],
+              "location": "Step.randMd5key(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 234736870,
+              "status": "passed"
+            },
+            "line": 35,
+            "name": "调用POST_Json接口,testContent:\"登录\",url:\"{url}{path}?r\u003d{r}\u0026key\u003d{md5key}\",param:\"{\u0027loginName\u0027:\u0027{rd}\u0027,\u0027pwd\u0027:\u0027123456\u0027,\u0027checkId\u0027:\u0027\u0027,\u0027checkCode\u0027:\u0027\u0027}\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "登录",
+                  "offset": 27
+                },
+                {
+                  "val": "{url}{path}?r\u003d{r}\u0026key\u003d{md5key}",
+                  "offset": 36
+                },
+                {
+                  "val": "{\u0027loginName\u0027:\u0027{rd}\u0027,\u0027pwd\u0027:\u0027123456\u0027,\u0027checkId\u0027:\u0027\u0027,\u0027checkCode\u0027:\u0027\u0027}",
+                  "offset": 75
+                }
+              ],
+              "location": "Step.send_json_post(String,String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 15846311,
+              "status": "passed"
+            },
+            "line": 36,
+            "name": "json结果中包含\"\u0027code\u0027:200,\u0027message\u0027:null,\u0027success\u0027:true,\u0027needCheckcode\u0027:false,\u0027companyRegistered\u0027:true,\u0027userStatus\u0027:20\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\u0027code\u0027:200,\u0027message\u0027:null,\u0027success\u0027:true,\u0027needCheckcode\u0027:false,\u0027companyRegistered\u0027:true,\u0027userStatus\u0027:20",
+                  "offset": 10
+                }
+              ],
+              "location": "Step.isHaveString(String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 1889149,
+              "status": "passed"
+            },
+            "line": 37,
+            "name": "把\"data,accessToken\"以\"{access_token}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "data,accessToken",
+                  "offset": 2
+                },
+                {
+                  "val": "{access_token}",
+                  "offset": 21
+                }
+              ],
+              "location": "Step.save(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 2528113,
+              "status": "passed"
+            },
+            "line": 38,
+            "name": "把\"data,refreshToken\"以\"{refresh_Token}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "data,refreshToken",
+                  "offset": 2
+                },
+                {
+                  "val": "{refresh_Token}",
+                  "offset": 22
+                }
+              ],
+              "location": "Step.save(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 146819,
+              "status": "passed"
+            },
+            "comments": [
+              {
+                "line": 40,
+                "value": "#验证登录_by_token"
+              }
+            ],
+            "line": 41,
+            "name": "设置at为\"{access_token}\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{access_token}",
+                  "offset": 6
+                }
+              ],
+              "location": "Step.setAt(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 216384,
+              "status": "passed"
+            },
+            "line": 42,
+            "name": "设置rt为\"{refresh_Token}\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{refresh_Token}",
+                  "offset": 6
+                }
+              ],
+              "location": "Step.setRt(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 185098,
+              "status": "passed"
+            },
+            "line": 43,
+            "name": "保存一个变量key\u003d\"{path}\",value\u003d\"/passport/tokeninfo\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{path}",
+                  "offset": 11
+                },
+                {
+                  "val": "/passport/tokeninfo",
+                  "offset": 26
+                }
+              ],
+              "location": "Step.saveBl(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 275504,
+              "status": "passed"
+            },
+            "line": 44,
+            "name": "生成一个md5key,以\"{md5key}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{md5key}",
+                  "offset": 13
+                }
+              ],
+              "location": "Step.randMd5key(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 114980600,
+              "status": "passed"
+            },
+            "line": 45,
+            "name": "调用GET接口,testContent:\"验证登录_by_token\",url:\"{url}{path}?r\u003d{r}\u0026key\u003d{md5key}\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "验证登录_by_token",
+                  "offset": 21
+                },
+                {
+                  "val": "{url}{path}?r\u003d{r}\u0026key\u003d{md5key}",
+                  "offset": 41
+                }
+              ],
+              "location": "Step.send_get(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 381401,
+              "status": "passed"
+            },
+            "line": 46,
+            "name": "json结果中包含\"\u0027code\u0027:200,\u0027message\u0027:null,\u0027success\u0027:true,\u0027needCheckcode\u0027:false,\u0027companyRegistered\u0027:true,\u0027userStatus\u0027:20\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\u0027code\u0027:200,\u0027message\u0027:null,\u0027success\u0027:true,\u0027needCheckcode\u0027:false,\u0027companyRegistered\u0027:true,\u0027userStatus\u0027:20",
+                  "offset": 10
+                }
+              ],
+              "location": "Step.isHaveString(String)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 48,
+        "name": "c端用户",
+        "description": "",
+        "id": "情景：ihr平台/rd平台/c端用户登录;c端用户",
+        "after": [
+          {
+            "result": {
+              "duration": 59515,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Step.afterScenario(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 60003788089,
+              "status": "passed"
+            },
+            "line": 49,
+            "name": "等待1\"分钟\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "1",
+                  "offset": 2
+                },
+                {
+                  "val": "分钟",
+                  "offset": 4
+                }
+              ],
+              "location": "Step.wait(int,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 471556,
+              "status": "passed"
+            },
+            "line": 50,
+            "name": "生产一个当前时间戳,以\"{r}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{r}",
+                  "offset": 12
+                }
+              ],
+              "location": "Step.randMilltime(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 58152,
+              "status": "passed"
+            },
+            "line": 51,
+            "name": "保存一个变量key\u003d\"{path}\",value\u003d\"/passport/login\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{path}",
+                  "offset": 11
+                },
+                {
+                  "val": "/passport/login",
+                  "offset": 26
+                }
+              ],
+              "location": "Step.saveBl(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 110232,
+              "status": "passed"
+            },
+            "line": 52,
+            "name": "生成一个md5key,以\"{md5key}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{md5key}",
+                  "offset": 13
+                }
+              ],
+              "location": "Step.randMd5key(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 381333241,
+              "status": "passed"
+            },
+            "line": 53,
+            "name": "调用POST_Json接口,testContent:\"登录\",url:\"{url}{path}?r\u003d{r}\u0026key\u003d{md5key}\",param:\"{\u0027loginName\u0027:\u0027{c_client}\u0027,\u0027pwd\u0027:\u0027test\u0027,\u0027checkId\u0027:\u0027\u0027,\u0027checkCode\u0027:\u0027\u0027}\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "登录",
+                  "offset": 27
+                },
+                {
+                  "val": "{url}{path}?r\u003d{r}\u0026key\u003d{md5key}",
+                  "offset": 36
+                },
+                {
+                  "val": "{\u0027loginName\u0027:\u0027{c_client}\u0027,\u0027pwd\u0027:\u0027test\u0027,\u0027checkId\u0027:\u0027\u0027,\u0027checkCode\u0027:\u0027\u0027}",
+                  "offset": 75
+                }
+              ],
+              "location": "Step.send_json_post(String,String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 14920816,
+              "status": "passed"
+            },
+            "line": 54,
+            "name": "json结果中包含\"\u0027code\u0027:22003,\u0027message\u0027:\u0027用户名或密码错误\u0027,\u0027success\u0027:false\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\u0027code\u0027:22003,\u0027message\u0027:\u0027用户名或密码错误\u0027,\u0027success\u0027:false",
+                  "offset": 10
+                }
+              ],
+              "location": "Step.isHaveString(String)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "情景：ihr平台/rd平台/c端用户登录",
+    "description": "",
+    "id": "情景：ihr平台/rd平台/c端用户登录",
+    "keyword": "Feature",
+    "uri": "qa_mobile_scenario_login\u0026login_by_token.feature",
+    "tags": [
+      {
+        "line": 1,
+        "name": "@qa_mobile_scenario_login\u0026login_by_token"
+      }
+    ]
+  },
+  {
+    "line": 2,
+    "elements": [
+      {
+        "line": 4,
+        "name": "init",
+        "description": "",
+        "id": "情景：注册成功-》修改密码;init",
+        "after": [
+          {
+            "result": {
+              "duration": 16252,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Step.afterScenario(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 168075,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "保存一个变量key\u003d\"{url}\",value\u003d\"http://api-qa.zhaopin.com\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{url}",
+                  "offset": 11
+                },
+                {
+                  "val": "http://api-qa.zhaopin.com",
+                  "offset": 25
+                }
+              ],
+              "location": "Step.saveBl(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 78670,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "保存一个变量key\u003d\"{path}\",value\u003d\"/passport/sendmobilecode\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{path}",
+                  "offset": 11
+                },
+                {
+                  "val": "/passport/sendmobilecode",
+                  "offset": 26
+                }
+              ],
+              "location": "Step.saveBl(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 105980,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "生产一个随机phoneNumber,以\"{phone_number}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{phone_number}",
+                  "offset": 20
+                }
+              ],
+              "location": "Step.randomPhonenumber(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 67002,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "保存一个变量key\u003d\"{pwd}\",value\u003d\"qwe123\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{pwd}",
+                  "offset": 11
+                },
+                {
+                  "val": "qwe123",
+                  "offset": 25
+                }
+              ],
+              "location": "Step.saveBl(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 84607,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "保存一个变量key\u003d\"{pwd_new}\",value\u003d\"qwe456\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{pwd_new}",
+                  "offset": 11
+                },
+                {
+                  "val": "qwe456",
+                  "offset": 29
+                }
+              ],
+              "location": "Step.saveBl(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 50609,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "保存一个变量key\u003d\"{type40}\",value\u003d\"40\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{type40}",
+                  "offset": 11
+                },
+                {
+                  "val": "40",
+                  "offset": 28
+                }
+              ],
+              "location": "Step.saveBl(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 55874,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "保存一个变量key\u003d\"{type50}\",value\u003d\"50\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{type50}",
+                  "offset": 11
+                },
+                {
+                  "val": "50",
+                  "offset": 28
+                }
+              ],
+              "location": "Step.saveBl(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 42076,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "设置fromsystem为\"23\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "23",
+                  "offset": 14
+                }
+              ],
+              "location": "Step.setfromsystem(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 25796,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "设置deviceid为\"qwertyu\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "qwertyu",
+                  "offset": 12
+                }
+              ],
+              "location": "Step.setdeviceid(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 306303,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "生产一个当前时间戳,以\"{r}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{r}",
+                  "offset": 12
+                }
+              ],
+              "location": "Step.randMilltime(String)"
+            },
+            "keyword": "When "
+          }
+        ]
+      },
+      {
+        "line": 16,
+        "name": "phone1/type\u003d40/注册成功",
+        "description": "",
+        "id": "情景：注册成功-》修改密码;phone1/type\u003d40/注册成功",
+        "after": [
+          {
+            "result": {
+              "duration": 12551,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Step.afterScenario(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 61569,
+              "status": "passed"
+            },
+            "comments": [
+              {
+                "line": 17,
+                "value": "#\t\tWhen 等待1\"分钟\""
+              }
+            ],
+            "line": 18,
+            "name": "保存一个变量key\u003d\"{path}\",value\u003d\"/passport/sendmobilecode\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{path}",
+                  "offset": 11
+                },
+                {
+                  "val": "/passport/sendmobilecode",
+                  "offset": 26
+                }
+              ],
+              "location": "Step.saveBl(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 95570,
+              "status": "passed"
+            },
+            "line": 19,
+            "name": "生成一个md5key,以\"{md5key}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{md5key}",
+                  "offset": 13
+                }
+              ],
+              "location": "Step.randMd5key(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 75766849,
+              "status": "passed"
+            },
+            "line": 20,
+            "name": "调用GET接口,testContent:\"发送验证码\",url:\"{url}{path}?r\u003d{r}\u0026key\u003d{md5key}\u0026mobile\u003d{phone_number}\u0026type\u003d40\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "发送验证码",
+                  "offset": 21
+                },
+                {
+                  "val": "{url}{path}?r\u003d{r}\u0026key\u003d{md5key}\u0026mobile\u003d{phone_number}\u0026type\u003d40",
+                  "offset": 33
+                }
+              ],
+              "location": "Step.send_get(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 157223,
+              "status": "passed"
+            },
+            "line": 21,
+            "name": "json结果中包含\"\u0027code\u0027:200,\u0027data\u0027:null,\u0027message\u0027:\u0027操作成功\u0027,\u0027success\u0027:true\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\u0027code\u0027:200,\u0027data\u0027:null,\u0027message\u0027:\u0027操作成功\u0027,\u0027success\u0027:true",
+                  "offset": 10
+                }
+              ],
+              "location": "Step.isHaveString(String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 116549,
+              "status": "passed"
+            },
+            "line": 22,
+            "name": "json结果中共有5个字段",
+            "match": {
+              "arguments": [
+                {
+                  "val": "5",
+                  "offset": 9
+                }
+              ],
+              "location": "Step.jsonLengthIsTrue(int)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 1001316419,
+              "status": "passed"
+            },
+            "line": 23,
+            "name": "等待1\"秒\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "1",
+                  "offset": 2
+                },
+                {
+                  "val": "秒",
+                  "offset": 4
+                }
+              ],
+              "location": "Step.wait(int,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 338590,
+              "status": "passed"
+            },
+            "line": 24,
+            "name": "生产一个当前时间戳,以\"{r}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{r}",
+                  "offset": 12
+                }
+              ],
+              "location": "Step.randMilltime(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 72233,
+              "status": "passed"
+            },
+            "line": 25,
+            "name": "保存一个变量key\u003d\"{path}\",value\u003d\"/test/mcode.do\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{path}",
+                  "offset": 11
+                },
+                {
+                  "val": "/test/mcode.do",
+                  "offset": 26
+                }
+              ],
+              "location": "Step.saveBl(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 79314,
+              "status": "passed"
+            },
+            "line": 26,
+            "name": "生成一个md5key,以\"{md5key}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{md5key}",
+                  "offset": 13
+                }
+              ],
+              "location": "Step.randMd5key(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 41797067,
+              "status": "passed"
+            },
+            "line": 27,
+            "name": "调用GET接口,url:\"http://mobileapi.zhaopin.com{path}?r\u003d{r}\u0026key\u003d{md5key}\u0026mobile\u003d{phone_number}\u0026p\u003d1q2w3e4r.com\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "http://mobileapi.zhaopin.com{path}?r\u003d{r}\u0026key\u003d{md5key}\u0026mobile\u003d{phone_number}\u0026p\u003d1q2w3e4r.com",
+                  "offset": 13
+                }
+              ],
+              "location": "Step.send_get(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 692691,
+              "status": "passed"
+            },
+            "line": 28,
+            "name": "把\"data,verifyCode\"以\"{verifyCode}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "data,verifyCode",
+                  "offset": 2
+                },
+                {
+                  "val": "{verifyCode}",
+                  "offset": 20
+                }
+              ],
+              "location": "Step.save(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1001704364,
+              "status": "passed"
+            },
+            "line": 29,
+            "name": "等待1\"秒\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "1",
+                  "offset": 2
+                },
+                {
+                  "val": "秒",
+                  "offset": 4
+                }
+              ],
+              "location": "Step.wait(int,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 469014,
+              "status": "passed"
+            },
+            "line": 30,
+            "name": "生产一个当前时间戳,以\"{r}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{r}",
+                  "offset": 12
+                }
+              ],
+              "location": "Step.randMilltime(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 70056,
+              "status": "passed"
+            },
+            "line": 31,
+            "name": "保存一个变量key\u003d\"{path}\",value\u003d\"/passport/register\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{path}",
+                  "offset": 11
+                },
+                {
+                  "val": "/passport/register",
+                  "offset": 26
+                }
+              ],
+              "location": "Step.saveBl(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 132683,
+              "status": "passed"
+            },
+            "line": 32,
+            "name": "生成一个md5key,以\"{md5key}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{md5key}",
+                  "offset": 13
+                }
+              ],
+              "location": "Step.randMd5key(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 297668572,
+              "status": "passed"
+            },
+            "line": 33,
+            "name": "调用POST_Json接口,testContent:\"注册成功\",url:\"{url}{path}?r\u003d{r}\u0026key\u003d{md5key}\",param:\"{\u0027mobile\u0027:\u0027{phone_number}\u0027,\u0027pwd\u0027:\u0027{pwd}\u0027,\u0027checkcode\u0027:\u0027{verifyCode}\u0027}\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "注册成功",
+                  "offset": 27
+                },
+                {
+                  "val": "{url}{path}?r\u003d{r}\u0026key\u003d{md5key}",
+                  "offset": 38
+                },
+                {
+                  "val": "{\u0027mobile\u0027:\u0027{phone_number}\u0027,\u0027pwd\u0027:\u0027{pwd}\u0027,\u0027checkcode\u0027:\u0027{verifyCode}\u0027}",
+                  "offset": 77
+                }
+              ],
+              "location": "Step.send_json_post(String,String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 14589477,
+              "status": "passed"
+            },
+            "line": 34,
+            "name": "json结果中包含\"\u0027code\u0027:200,\u0027message\u0027:null,\u0027success\u0027:true\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\u0027code\u0027:200,\u0027message\u0027:null,\u0027success\u0027:true",
+                  "offset": 10
+                }
+              ],
+              "location": "Step.isHaveString(String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 1355759,
+              "status": "passed"
+            },
+            "line": 35,
+            "name": "json结果中共有6个字段",
+            "match": {
+              "arguments": [
+                {
+                  "val": "6",
+                  "offset": 9
+                }
+              ],
+              "location": "Step.jsonLengthIsTrue(int)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 37,
+        "name": "phone1/type\u003d50/修改密码成功",
+        "description": "",
+        "id": "情景：注册成功-》修改密码;phone1/type\u003d50/修改密码成功",
+        "after": [
+          {
+            "result": {
+              "duration": 13223,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Step.afterScenario(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 60000156416,
+              "status": "passed"
+            },
+            "line": 38,
+            "name": "等待1\"分钟\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "1",
+                  "offset": 2
+                },
+                {
+                  "val": "分钟",
+                  "offset": 4
+                }
+              ],
+              "location": "Step.wait(int,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1631370,
+              "status": "passed"
+            },
+            "line": 39,
+            "name": "生产一个当前时间戳,以\"{r}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{r}",
+                  "offset": 12
+                }
+              ],
+              "location": "Step.randMilltime(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 115449,
+              "status": "passed"
+            },
+            "line": 40,
+            "name": "保存一个变量key\u003d\"{path}\",value\u003d\"/passport/sendmobilecode\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{path}",
+                  "offset": 11
+                },
+                {
+                  "val": "/passport/sendmobilecode",
+                  "offset": 26
+                }
+              ],
+              "location": "Step.saveBl(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 624226,
+              "status": "passed"
+            },
+            "line": 41,
+            "name": "生成一个md5key,以\"{md5key}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{md5key}",
+                  "offset": 13
+                }
+              ],
+              "location": "Step.randMd5key(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 5570188404,
+              "status": "passed"
+            },
+            "line": 42,
+            "name": "调用GET接口,testContent:\"发送验证码\",url:\"{url}{path}?r\u003d{r}\u0026key\u003d{md5key}\u0026mobile\u003d{phone_number}\u0026type\u003d{type50}\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "发送验证码",
+                  "offset": 21
+                },
+                {
+                  "val": "{url}{path}?r\u003d{r}\u0026key\u003d{md5key}\u0026mobile\u003d{phone_number}\u0026type\u003d{type50}",
+                  "offset": 33
+                }
+              ],
+              "location": "Step.send_get(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 77062,
+              "status": "passed"
+            },
+            "line": 43,
+            "name": "json结果中包含\"\u0027code\u0027:200,\u0027data\u0027:null,\u0027message\u0027:\u0027操作成功\u0027,\u0027success\u0027:true\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\u0027code\u0027:200,\u0027data\u0027:null,\u0027message\u0027:\u0027操作成功\u0027,\u0027success\u0027:true",
+                  "offset": 10
+                }
+              ],
+              "location": "Step.isHaveString(String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 55363,
+              "status": "passed"
+            },
+            "line": 44,
+            "name": "json结果中共有5个字段",
+            "match": {
+              "arguments": [
+                {
+                  "val": "5",
+                  "offset": 9
+                }
+              ],
+              "location": "Step.jsonLengthIsTrue(int)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 1004512149,
+              "status": "passed"
+            },
+            "line": 45,
+            "name": "等待1\"秒\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "1",
+                  "offset": 2
+                },
+                {
+                  "val": "秒",
+                  "offset": 4
+                }
+              ],
+              "location": "Step.wait(int,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 503864,
+              "status": "passed"
+            },
+            "line": 46,
+            "name": "生产一个当前时间戳,以\"{r}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{r}",
+                  "offset": 12
+                }
+              ],
+              "location": "Step.randMilltime(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 72060,
+              "status": "passed"
+            },
+            "line": 47,
+            "name": "保存一个变量key\u003d\"{path}\",value\u003d\"/test/mcode.do\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{path}",
+                  "offset": 11
+                },
+                {
+                  "val": "/test/mcode.do",
+                  "offset": 26
+                }
+              ],
+              "location": "Step.saveBl(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 102328,
+              "status": "passed"
+            },
+            "line": 48,
+            "name": "生成一个md5key,以\"{md5key}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{md5key}",
+                  "offset": 13
+                }
+              ],
+              "location": "Step.randMd5key(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 24368902,
+              "status": "passed"
+            },
+            "line": 49,
+            "name": "调用GET接口,url:\"http://mobileapi.zhaopin.com{path}?r\u003d{r}\u0026key\u003d{md5key}\u0026mobile\u003d{phone_number}\u0026p\u003d1q2w3e4r.com\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "http://mobileapi.zhaopin.com{path}?r\u003d{r}\u0026key\u003d{md5key}\u0026mobile\u003d{phone_number}\u0026p\u003d1q2w3e4r.com",
+                  "offset": 13
+                }
+              ],
+              "location": "Step.send_get(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1065039,
+              "status": "passed"
+            },
+            "line": 50,
+            "name": "把\"data,verifyCode\"以\"{verifyCode}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "data,verifyCode",
+                  "offset": 2
+                },
+                {
+                  "val": "{verifyCode}",
+                  "offset": 20
+                }
+              ],
+              "location": "Step.save(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1003074560,
+              "status": "passed"
+            },
+            "line": 52,
+            "name": "等待1\"秒\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "1",
+                  "offset": 2
+                },
+                {
+                  "val": "秒",
+                  "offset": 4
+                }
+              ],
+              "location": "Step.wait(int,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 282892,
+              "status": "passed"
+            },
+            "line": 53,
+            "name": "生产一个当前时间戳,以\"{r}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{r}",
+                  "offset": 12
+                }
+              ],
+              "location": "Step.randMilltime(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 31556,
+              "status": "passed"
+            },
+            "line": 54,
+            "name": "保存一个变量key\u003d\"{path}\",value\u003d\"/passport/changepassword\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{path}",
+                  "offset": 11
+                },
+                {
+                  "val": "/passport/changepassword",
+                  "offset": 26
+                }
+              ],
+              "location": "Step.saveBl(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 67436,
+              "status": "passed"
+            },
+            "line": 55,
+            "name": "生成一个md5key,以\"{md5key}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{md5key}",
+                  "offset": 13
+                }
+              ],
+              "location": "Step.randMd5key(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 146755761,
+              "status": "passed"
+            },
+            "line": 56,
+            "name": "调用POST_Json接口,testContent:\"修改密码成功\",url:\"{url}{path}?r\u003d{r}\u0026key\u003d{md5key}\",param:\"{\u0027pwd\u0027:\u0027{pwd_new}\u0027,\u0027mobile\u0027:\u0027{phone_number}\u0027,\u0027code\u0027:\u0027{verifyCode}\u0027}\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "修改密码成功",
+                  "offset": 27
+                },
+                {
+                  "val": "{url}{path}?r\u003d{r}\u0026key\u003d{md5key}",
+                  "offset": 40
+                },
+                {
+                  "val": "{\u0027pwd\u0027:\u0027{pwd_new}\u0027,\u0027mobile\u0027:\u0027{phone_number}\u0027,\u0027code\u0027:\u0027{verifyCode}\u0027}",
+                  "offset": 79
+                }
+              ],
+              "location": "Step.send_json_post(String,String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 120164,
+              "status": "passed"
+            },
+            "line": 57,
+            "name": "json结果中包含\"\u0027code\u0027:200,\u0027message\u0027:\u0027操作成功\u0027,\u0027success\u0027:true\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\u0027code\u0027:200,\u0027message\u0027:\u0027操作成功\u0027,\u0027success\u0027:true",
+                  "offset": 10
+                }
+              ],
+              "location": "Step.isHaveString(String)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 59,
+        "name": "phone1/type\u003d40/修改密码失败",
+        "description": "",
+        "id": "情景：注册成功-》修改密码;phone1/type\u003d40/修改密码失败",
+        "after": [
+          {
+            "result": {
+              "duration": 11241,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Step.afterScenario(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 60002968598,
+              "status": "passed"
+            },
+            "line": 60,
+            "name": "等待1\"分钟\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "1",
+                  "offset": 2
+                },
+                {
+                  "val": "分钟",
+                  "offset": 4
+                }
+              ],
+              "location": "Step.wait(int,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 446950,
+              "status": "passed"
+            },
+            "line": 61,
+            "name": "生产一个当前时间戳,以\"{r}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{r}",
+                  "offset": 12
+                }
+              ],
+              "location": "Step.randMilltime(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 51048,
+              "status": "passed"
+            },
+            "line": 62,
+            "name": "保存一个变量key\u003d\"{path}\",value\u003d\"/passport/sendmobilecode\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{path}",
+                  "offset": 11
+                },
+                {
+                  "val": "/passport/sendmobilecode",
+                  "offset": 26
+                }
+              ],
+              "location": "Step.saveBl(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 519099,
+              "status": "passed"
+            },
+            "line": 63,
+            "name": "生成一个md5key,以\"{md5key}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{md5key}",
+                  "offset": 13
+                }
+              ],
+              "location": "Step.randMd5key(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 493720265,
+              "status": "passed"
+            },
+            "line": 64,
+            "name": "调用GET接口,testContent:\"发送验证码\",url:\"{url}{path}?r\u003d{r}\u0026key\u003d{md5key}\u0026mobile\u003d{phone_number}\u0026type\u003d{type40}\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "发送验证码",
+                  "offset": 21
+                },
+                {
+                  "val": "{url}{path}?r\u003d{r}\u0026key\u003d{md5key}\u0026mobile\u003d{phone_number}\u0026type\u003d{type40}",
+                  "offset": 33
+                }
+              ],
+              "location": "Step.send_get(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 114224,
+              "status": "passed"
+            },
+            "line": 65,
+            "name": "json结果中包含\"\u0027code\u0027:200,\u0027data\u0027:null,\u0027message\u0027:\u0027操作成功\u0027,\u0027success\u0027:true\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\u0027code\u0027:200,\u0027data\u0027:null,\u0027message\u0027:\u0027操作成功\u0027,\u0027success\u0027:true",
+                  "offset": 10
+                }
+              ],
+              "location": "Step.isHaveString(String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 88274,
+              "status": "passed"
+            },
+            "line": 66,
+            "name": "json结果中共有5个字段",
+            "match": {
+              "arguments": [
+                {
+                  "val": "5",
+                  "offset": 9
+                }
+              ],
+              "location": "Step.jsonLengthIsTrue(int)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 50363,
+              "status": "passed"
+            },
+            "line": 67,
+            "name": "保存一个变量key\u003d\"{path}\",value\u003d\"/test/mcode.do\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{path}",
+                  "offset": 11
+                },
+                {
+                  "val": "/test/mcode.do",
+                  "offset": 26
+                }
+              ],
+              "location": "Step.saveBl(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 128415,
+              "status": "passed"
+            },
+            "line": 68,
+            "name": "生成一个md5key,以\"{md5key}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{md5key}",
+                  "offset": 13
+                }
+              ],
+              "location": "Step.randMd5key(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 213502176,
+              "status": "passed"
+            },
+            "line": 69,
+            "name": "调用GET接口,url:\"http://mobileapi.zhaopin.com{path}?r\u003d{r}\u0026key\u003d{md5key}\u0026mobile\u003d{phone_number}\u0026p\u003d1q2w3e4r.com\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "http://mobileapi.zhaopin.com{path}?r\u003d{r}\u0026key\u003d{md5key}\u0026mobile\u003d{phone_number}\u0026p\u003d1q2w3e4r.com",
+                  "offset": 13
+                }
+              ],
+              "location": "Step.send_get(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 595577,
+              "status": "passed"
+            },
+            "line": 70,
+            "name": "把\"data,verifyCode\"以\"{verifyCode}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "data,verifyCode",
+                  "offset": 2
+                },
+                {
+                  "val": "{verifyCode}",
+                  "offset": 20
+                }
+              ],
+              "location": "Step.save(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1003866378,
+              "status": "passed"
+            },
+            "line": 72,
+            "name": "等待1\"秒\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "1",
+                  "offset": 2
+                },
+                {
+                  "val": "秒",
+                  "offset": 4
+                }
+              ],
+              "location": "Step.wait(int,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 381772,
+              "status": "passed"
+            },
+            "line": 73,
+            "name": "生产一个当前时间戳,以\"{r}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{r}",
+                  "offset": 12
+                }
+              ],
+              "location": "Step.randMilltime(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 39495,
+              "status": "passed"
+            },
+            "line": 74,
+            "name": "保存一个变量key\u003d\"{path}\",value\u003d\"/passport/changepassword\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{path}",
+                  "offset": 11
+                },
+                {
+                  "val": "/passport/changepassword",
+                  "offset": 26
+                }
+              ],
+              "location": "Step.saveBl(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 77908,
+              "status": "passed"
+            },
+            "line": 75,
+            "name": "生成一个md5key,以\"{md5key}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{md5key}",
+                  "offset": 13
+                }
+              ],
+              "location": "Step.randMd5key(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 217232839,
+              "status": "passed"
+            },
+            "line": 76,
+            "name": "调用POST_Json接口,testContent:\"修改密码失败\",url:\"{url}{path}?r\u003d{r}\u0026key\u003d{md5key}\",param:\"{\u0027pwd\u0027:\u0027{pwd_new}\u0027,\u0027mobile\u0027:\u0027{phone_number}\u0027,\u0027code\u0027:\u0027{verifyCode}\u0027}\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "修改密码失败",
+                  "offset": 27
+                },
+                {
+                  "val": "{url}{path}?r\u003d{r}\u0026key\u003d{md5key}",
+                  "offset": 40
+                },
+                {
+                  "val": "{\u0027pwd\u0027:\u0027{pwd_new}\u0027,\u0027mobile\u0027:\u0027{phone_number}\u0027,\u0027code\u0027:\u0027{verifyCode}\u0027}",
+                  "offset": 79
+                }
+              ],
+              "location": "Step.send_json_post(String,String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 100023,
+              "status": "passed"
+            },
+            "line": 77,
+            "name": "json结果中包含\"\u0027code\u0027:604,\u0027message\u0027:\u0027短信验证码错误\u0027,\u0027success\u0027:false\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\u0027code\u0027:604,\u0027message\u0027:\u0027短信验证码错误\u0027,\u0027success\u0027:false",
+                  "offset": 10
+                }
+              ],
+              "location": "Step.isHaveString(String)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 79,
+        "name": "phone/type\u003d50/注册失败",
+        "description": "",
+        "id": "情景：注册成功-》修改密码;phone/type\u003d50/注册失败",
+        "after": [
+          {
+            "result": {
+              "duration": 23571,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Step.afterScenario(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 91050,
+              "status": "passed"
+            },
+            "line": 80,
+            "name": "生产一个随机phoneNumber,以\"{phone_number_new}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{phone_number_new}",
+                  "offset": 20
+                }
+              ],
+              "location": "Step.randomPhonenumber(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1001531954,
+              "status": "passed"
+            },
+            "line": 81,
+            "name": "等待1\"秒\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "1",
+                  "offset": 2
+                },
+                {
+                  "val": "秒",
+                  "offset": 4
+                }
+              ],
+              "location": "Step.wait(int,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 915652,
+              "status": "passed"
+            },
+            "line": 82,
+            "name": "生产一个当前时间戳,以\"{r}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{r}",
+                  "offset": 12
+                }
+              ],
+              "location": "Step.randMilltime(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 138241,
+              "status": "passed"
+            },
+            "line": 83,
+            "name": "保存一个变量key\u003d\"{path}\",value\u003d\"/passport/sendmobilecode\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{path}",
+                  "offset": 11
+                },
+                {
+                  "val": "/passport/sendmobilecode",
+                  "offset": 26
+                }
+              ],
+              "location": "Step.saveBl(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 100635,
+              "status": "passed"
+            },
+            "line": 84,
+            "name": "生成一个md5key,以\"{md5key}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{md5key}",
+                  "offset": 13
+                }
+              ],
+              "location": "Step.randMd5key(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 144476391,
+              "status": "passed"
+            },
+            "line": 85,
+            "name": "调用GET接口,testContent:\"发送验证码\",url:\"{url}{path}?r\u003d{r}\u0026key\u003d{md5key}\u0026mobile\u003d{phone_number_new}\u0026type\u003d50\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "发送验证码",
+                  "offset": 21
+                },
+                {
+                  "val": "{url}{path}?r\u003d{r}\u0026key\u003d{md5key}\u0026mobile\u003d{phone_number_new}\u0026type\u003d50",
+                  "offset": 33
+                }
+              ],
+              "location": "Step.send_get(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 119723,
+              "status": "passed"
+            },
+            "line": 86,
+            "name": "json结果中包含\"\u0027code\u0027:200,\u0027data\u0027:null,\u0027message\u0027:\u0027操作成功\u0027,\u0027success\u0027:true\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\u0027code\u0027:200,\u0027data\u0027:null,\u0027message\u0027:\u0027操作成功\u0027,\u0027success\u0027:true",
+                  "offset": 10
+                }
+              ],
+              "location": "Step.isHaveString(String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 97597,
+              "status": "passed"
+            },
+            "line": 87,
+            "name": "json结果中共有5个字段",
+            "match": {
+              "arguments": [
+                {
+                  "val": "5",
+                  "offset": 9
+                }
+              ],
+              "location": "Step.jsonLengthIsTrue(int)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 1003529169,
+              "status": "passed"
+            },
+            "line": 89,
+            "name": "等待1\"秒\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "1",
+                  "offset": 2
+                },
+                {
+                  "val": "秒",
+                  "offset": 4
+                }
+              ],
+              "location": "Step.wait(int,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 514110,
+              "status": "passed"
+            },
+            "line": 90,
+            "name": "生产一个当前时间戳,以\"{r}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{r}",
+                  "offset": 12
+                }
+              ],
+              "location": "Step.randMilltime(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 49706,
+              "status": "passed"
+            },
+            "line": 91,
+            "name": "保存一个变量key\u003d\"{path}\",value\u003d\"/test/mcode.do\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{path}",
+                  "offset": 11
+                },
+                {
+                  "val": "/test/mcode.do",
+                  "offset": 26
+                }
+              ],
+              "location": "Step.saveBl(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 91405,
+              "status": "passed"
+            },
+            "line": 92,
+            "name": "生成一个md5key,以\"{md5key}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{md5key}",
+                  "offset": 13
+                }
+              ],
+              "location": "Step.randMd5key(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 38341365,
+              "status": "passed"
+            },
+            "line": 93,
+            "name": "调用GET接口,url:\"http://mobileapi.zhaopin.com{path}?r\u003d{r}\u0026key\u003d{md5key}\u0026mobile\u003d{phone_number_new}\u0026p\u003d1q2w3e4r.com\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "http://mobileapi.zhaopin.com{path}?r\u003d{r}\u0026key\u003d{md5key}\u0026mobile\u003d{phone_number_new}\u0026p\u003d1q2w3e4r.com",
+                  "offset": 13
+                }
+              ],
+              "location": "Step.send_get(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 718239,
+              "status": "passed"
+            },
+            "line": 94,
+            "name": "把\"data,verifyCode\"以\"{verifyCode}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "data,verifyCode",
+                  "offset": 2
+                },
+                {
+                  "val": "{verifyCode}",
+                  "offset": 20
+                }
+              ],
+              "location": "Step.save(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1003646684,
+              "status": "passed"
+            },
+            "line": 96,
+            "name": "等待1\"秒\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "1",
+                  "offset": 2
+                },
+                {
+                  "val": "秒",
+                  "offset": 4
+                }
+              ],
+              "location": "Step.wait(int,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 499848,
+              "status": "passed"
+            },
+            "line": 97,
+            "name": "生产一个当前时间戳,以\"{r}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{r}",
+                  "offset": 12
+                }
+              ],
+              "location": "Step.randMilltime(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 49924,
+              "status": "passed"
+            },
+            "line": 98,
+            "name": "保存一个变量key\u003d\"{path}\",value\u003d\"/passport/register\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{path}",
+                  "offset": 11
+                },
+                {
+                  "val": "/passport/register",
+                  "offset": 26
+                }
+              ],
+              "location": "Step.saveBl(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 88998,
+              "status": "passed"
+            },
+            "line": 99,
+            "name": "生成一个md5key,以\"{md5key}\"命名保存",
+            "match": {
+              "arguments": [
+                {
+                  "val": "{md5key}",
+                  "offset": 13
+                }
+              ],
+              "location": "Step.randMd5key(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 300164707,
+              "status": "passed"
+            },
+            "line": 100,
+            "name": "调用POST_Json接口,testContent:\"注册失败\",url:\"{url}{path}?r\u003d{r}\u0026key\u003d{md5key}\",param:\"{\u0027mobile\u0027:\u0027{phone_number_new}\u0027,\u0027pwd\u0027:\u0027{pwd}\u0027,\u0027checkcode\u0027:\u0027{verifyCode}\u0027}\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "注册失败",
+                  "offset": 27
+                },
+                {
+                  "val": "{url}{path}?r\u003d{r}\u0026key\u003d{md5key}",
+                  "offset": 38
+                },
+                {
+                  "val": "{\u0027mobile\u0027:\u0027{phone_number_new}\u0027,\u0027pwd\u0027:\u0027{pwd}\u0027,\u0027checkcode\u0027:\u0027{verifyCode}\u0027}",
+                  "offset": 77
+                }
+              ],
+              "location": "Step.send_json_post(String,String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 15929541,
+              "status": "passed"
+            },
+            "line": 101,
+            "name": "json结果中包含\"\u0027code\u0027:604,\u0027message\u0027:\u0027短信验证码错误\u0027,\u0027success\u0027:false\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\u0027code\u0027:604,\u0027message\u0027:\u0027短信验证码错误\u0027,\u0027success\u0027:false",
+                  "offset": 10
+                }
+              ],
+              "location": "Step.isHaveString(String)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "情景：注册成功-》修改密码",
+    "description": "",
+    "id": "情景：注册成功-》修改密码",
+    "keyword": "Feature",
+    "uri": "qa_mobile_scenario_sendCode.feature",
+    "tags": [
+      {
+        "line": 1,
+        "name": "@qa_mobile_scenario_sendCode"
+      }
+    ]
+  }
+]

@@ -1,0 +1,97 @@
+#@qa_mobile_scenario_registerToregistercompany
+Feature: 情景： 注册用户/注册公司/登录
+	
+	Scenario: init
+		When 保存一个变量key="{url}",value="http://api-qa.zhaopin.com/"
+		When 保存一个变量key="{path}",value="passport/register"
+  		When 生产一个随机phoneNumber,以"{phone_number}"命名保存
+  		When 保存一个变量key="{pwd}",value="qwe123"
+   	
+	 		
+	Scenario: 情景1：注册用户-》注册公司信息-》注册公司信息
+  		When 调用GET接口,url:"{url}passport/sendmobilecode?mobile={phone_number}&type=40"
+    	Then json结果中包含"'code':200,'message':'操作成功'"
+    	When 调用GET接口,url:"http://mobileapi.zhaopin.com/test/mcode.do?mobile={phone_number}&p=1q2w3e4r.com"
+   		When 把"data,verifyCode"以"{verifyCode}"命名保存
+  		When 调用POST_Json接口,testContent:"注册成功",url:"{url}{path}",param:"{'mobile':'{phone_number}','pwd':'{pwd}','checkcode':'{verifyCode}'}"
+		When 把"data,accessToken"以"{access_token}"命名保存
+   		When 把"data,refreshToken"以"{refresh_Token}"命名保存
+   		Then json结果中包含"'code':200,'message':null,'success':true"
+   		Then json结果中共有6个字段
+    		
+   	Scenario: 注册公司信息第二步
+   		When 设置at为"{access_token}"
+ 		When 设置rt为"{refresh_Token}"
+   		When 调用POST_Json接口,testContent:"注册公司信息第二步",url:"{url}passport/registercompany",param:"{'companyName':'这是大于4位测试','cityId':530,'staffName':'联系人','nickName':'这是6位昵称','sex':1,'phone':'','userName':'{phone_number}','email':'3221112@qq.com'}"
+   		Then json结果中包含"'code':200,'accessToken':'{access_token}','refreshToken':'{refresh_Token}','companyRegistered':true,'needCheckcode':false,'message':'操作成功','success':true"
+	
+#	Scenario: 注册公司信息第二步
+#   		When 设置at为"{access_token}"
+#   		When 设置rt为"{refresh_Token}"
+#   		When 调用POST_Json接口,testContent:"注册公司信息第二步",url:"{url}passport/registercompany",param:"{'companyName':'这是大于4位测试','cityId':530,'staffName':'联系人','nickName':'这是6位昵称','sex':1,'phone':'','userName':'{phone_number}','email':'3221112@qq.com'}"
+#    	Then json结果中包含"'code':653,'message':'已经完善过公司信息，请勿重复操作'"
+	
+	Scenario: 情景2：注册用户-》登录-》注册公司信息
+		When 生产一个随机phoneNumber,以"{phone_number}"命名保存
+  		When 调用GET接口,url:"{url}passport/sendmobilecode?mobile={phone_number}&type=40"
+    	Then json结果中包含"'code':200,'message':'操作成功'"
+   		When 调用GET接口,url:"http://mobileapi.zhaopin.com/test/mcode.do?mobile={phone_number}&p=1q2w3e4r.com"
+   		When 把"data,verifyCode"以"{verifyCode}"命名保存
+  		When 调用POST_Json接口,testContent:"注册成功",url:"{url}{path}",param:"{'mobile':'{phone_number}','pwd':'{pwd}','checkcode':'{verifyCode}'}"
+    	Then json结果中包含"'code':200,'message':null,'success':true"
+    	Then json结果中共有6个字段
+    		
+	Scenario: 登录
+		When 调用POST_Json接口,testContent:"登录",url:"{url}passport/login",param:"{'loginName':'{phone_number}','pwd':'{pwd}','checkId':'','checkCode':''}"
+		Then json结果中包含"'code':200,'message':null,'success':true,'needCheckcode':false,'companyRegistered':false,'userStatus':10,'userType':153,'name':'{phone_number}'"
+		When 把"data,accessToken"以"{access_token_new}"命名保存
+   		When 把"data,refreshToken"以"{refresh_Token_new}"命名保存
+	
+   	Scenario: 注册公司信息第二步
+   		When 设置at为"{access_token_new}"
+   		When 设置rt为"{refresh_Token_new}"
+   		When 调用POST_Json接口,testContent:"注册公司信息第二步",url:"{url}passport/registercompany",param:"{'companyName':'这是大于4位测试1','cityId':530,'staffName':'联系人1','nickName':'这是6位昵称1','sex':1,'phone':'','userName':'{phone_number}','email':'3221112@qq.com'}"
+   		Then json结果中包含"'code':200,'accessToken':'{access_token_new}','refreshToken':'{refresh_Token_new}','companyRegistered':true,'needCheckcode':false,'message':'操作成功','success':true"
+	
+#	Scenario: 情景3：不同用户注册相同公司信息
+#   		When 设置at为"{access_token}"
+#   		When 设置rt为"{refresh_Token}"
+#   		When 调用POST_Json接口,testContent:"注册公司信息第二步",url:"{url}passport/registercompany",param:"{'companyName':'这是大于4位测试1','cityId':530,'staffName':'联系人1','nickName':'这是6位昵称1','sex':1,'phone':'','userName':'{phone_number}','email':'3221112@qq.com'}"
+#   		Then json结果中包含"'code':153,'message':'已存在完全相同公司信息内容'"
+    		
+   	Scenario: 情景4：注册用户-》注册公司-》登录-》注册公司
+   		When 生产一个随机phoneNumber,以"{phone_number}"命名保存
+  		When 调用GET接口,url:"{url}passport/sendmobilecode?mobile={phone_number}&type=40"
+   		Then json结果中包含"'code':200,'message':'操作成功'"
+   		When 调用GET接口,url:"http://mobileapi.zhaopin.com/test/mcode.do?mobile={phone_number}&p=1q2w3e4r.com"
+   		When 把"data,verifyCode"以"{verifyCode}"命名保存
+  		When 调用POST_Json接口,testContent:"注册成功",url:"{url}{path}",param:"{'mobile':'{phone_number}','pwd':'{pwd}','checkcode':'{verifyCode}'}"
+		When 把"data,accessToken"以"{access_token}"命名保存
+   		When 把"data,refreshToken"以"{refresh_Token}"命名保存
+    	Then json结果中包含"'code':200,'message':null,'success':true"
+    	Then json结果中共有6个字段
+	
+	Scenario: 注册公司信息第二步
+   		When 设置at为"{access_token_new}"
+   		When 设置rt为"{refresh_Token_new}"
+   		When 调用POST_Json接口,testContent:"注册公司信息第二步",url:"{url}passport/registercompany",param:"{'companyName':'这是大于4位测试1','cityId':530,'staffName':'联系人1','nickName':'这是6位昵称1','sex':1,'phone':'','userName':'{phone_number}','email':'3221112@qq.com'}"
+   		Then json结果中包含"'code':200,'accessToken':'{access_token}','refreshToken':'{refresh_Token}','companyRegistered':true,'needCheckcode':false,'message':'操作成功','success':true"
+	
+	Scenario: 登录
+		When 调用POST_Json接口,testContent:"登录",url:"{url}passport/login",param:"{'loginName':'{phone_number}','pwd':'{pwd}','checkId':'','checkCode':''}"
+		Then json结果中包含"'code':200,'message':null,'success':true,'needCheckcode':false,'companyRegistered':true,'userStatus':10,'userType':153,'name':'{phone_number}'"
+		When 把"data,accessToken"以"{access_token_new}"命名保存
+    	When 把"data,refreshToken"以"{refresh_Token_new}"命名保存
+	
+	Scenario: 注册公司信息第二步
+    	When 设置at为"{access_token_new}"
+   		When 设置rt为"{refresh_Token_new}"
+   		When 调用POST_Json接口,testContent:"注册公司信息第二步",url:"{url}passport/registercompany",param:"{'companyName':'这是大于4位测试1','cityId':530,'staffName':'联系人1','nickName':'这是6位昵称1','sex':1,'phone':'','userName':'{phone_number}','email':'3221112@qq.com'}"
+   		Then json结果中包含"'code':617,'message':'该用户已注册，请直接登录','success':false|"
+    	
+    Scenario: 情景5：未注册直接注册公司信息
+    	When 调用POST_Json接口,testContent:"注册公司信息第二步",url:"{url}passport/registercompany",param:"{'companyName':'这是大于4位测试1','cityId':530,'staffName':'联系人1','nickName':'这是6位昵称1','sex':1,'phone':'','userName':'13412345678','email':'3221112@qq.com'}"
+   		Then json结果中包含"'code':215,'message':'用户数据错误','success':false"
+    		
+	
+    	
